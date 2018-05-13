@@ -3,7 +3,25 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.tianli.dao.UserDao">
-	<select id="queryUserByName" parameterType="string" resultType="User">
+
+	<resultMap type="com.tianli.Category" id="categoryBean">
+		<id column="id" property="id"/>
+		<result column="name" property="name"/>
+	</resultMap>
+    <resultMap type="com.tianli.entity.User" id="userBean">
+		<id column="uid" property="id"/>
+		<result column="name" property="name"/>
+		<result column="password" property="passWord"/>
+		
+		<collection property="myBlogList" ofType="com.tianli.entity.Blog">
+			<id column="bid" property="id"/>
+			<result column="title" property="title"/>
+			<result column="publishdate" property="publishDate"/>
+			<collection property=""></collection>
+		</collection>
+	</resultMap>
+	
+	<select id="queryUserByName" parameterType="string" resultMap="userBean">
 	SELECT 
 		* 
 	FROM 
@@ -11,4 +29,21 @@
 	WHERE
 		name=#{name}
 	</select>
+	
+	<select id="queryUserById" parameterType="int" resultMap="userBean">
+	SELECT
+		u.*,b.*,u.id 'uid',b.id 'bid'
+	FROM
+		user u
+	WHERE
+		uid = #{id}
+	LEFT JOIN
+		blog b 
+	ON
+		uid = bid
+	
+	</select>
+	
+	
+
 </mapper>

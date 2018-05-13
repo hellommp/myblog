@@ -6,7 +6,14 @@
  */
 package com.tianli.dao;
 
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
+
+import org.springframework.stereotype.Service;
+
+import com.tianli.entity.Blog;
+
 import com.tianli.entity.User;
 
 /** 
@@ -18,5 +25,9 @@ import com.tianli.entity.User;
 public interface UserDao {
 	
 	User queryUserByName(String name);
+	
+	User queryUserById(int id);
+	
+	List<Blog>queryBlogListById(int id);
 	
 }
