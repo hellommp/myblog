@@ -81,5 +81,12 @@ public class Blog {
 		this.category = category;
 		this.keyWord = keyWord;
 	}
+
+	@Override
+	public String toString() {
+		return "Blog [id=" + id + ", title=" + title + ", publishDate=" + publishDate + ", category=" + category
+				+ ", keyWord=" + keyWord + "]";
+	}
+	
 	
 }

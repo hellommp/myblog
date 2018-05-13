@@ -22,10 +22,13 @@ import com.tianli.entity.User;
 @Repository
 public interface UserDao {
 	
+	//通过名字查询用户
 	User queryUserByName(String name);
 	
+	//通过id查询用户
 	User queryUserById(int id);
 	
+	//通过id查询所有博客
 	List<Blog>queryBlogListById(int id);
 	
 }

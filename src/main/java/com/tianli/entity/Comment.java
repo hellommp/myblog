@@ -69,4 +69,11 @@ public class Comment {
 	public Comment() {
 		// TODO Auto-generated constructor stub
 	}
+
+	@Override
+	public String toString() {
+		return "Comment [id=" + id + ", content=" + content + ", createDate=" + createDate + ", user=" + user + "]";
+	}
+	
+	
 }

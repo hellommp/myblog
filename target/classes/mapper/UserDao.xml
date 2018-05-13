@@ -3,21 +3,27 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.tianli.dao.UserDao">
-
-	<resultMap type="com.tianli.Category" id="categoryBean">
-		<id column="id" property="id"/>
-		<result column="name" property="name"/>
-	</resultMap>
+	
     <resultMap type="com.tianli.entity.User" id="userBean">
 		<id column="uid" property="id"/>
-		<result column="name" property="name"/>
+		<result column="uname" property="name"/>
 		<result column="password" property="passWord"/>
 		
 		<collection property="myBlogList" ofType="com.tianli.entity.Blog">
 			<id column="bid" property="id"/>
 			<result column="title" property="title"/>
 			<result column="publishdate" property="publishDate"/>
-			<collection property=""></collection>
+			
+			<association property="category" javaType="com.tianli.entity.Category">  
+            	<result column="cid" property="id"/>  
+            	<result column="cname" property="name"/>  
+        	</association>  
+        	
+        	<association property="keyWord" javaType="com.tianli.entity.KeyWord">  
+            	<result column="kid" property="id"/>  
+            	<result column="kname" property="name"/>  
+        	</association>  
+        
 		</collection>
 	</resultMap>
 	
@@ -32,16 +38,20 @@
 	
 	<select id="queryUserById" parameterType="int" resultMap="userBean">
 	SELECT
-		u.*,b.*,u.id 'uid',b.id 'bid'
+		u.id 'uid',u.name 'uname',u.password,
+		b.id 'bid',b.title,b.publishdate,
+		c.id 'cid',c.name 'cname',
+		k.id 'kid',k.name 'kname'
 	FROM
-		user u
+		user u,blog b,category c,keyword k
 	WHERE
-		uid = #{id}
-	LEFT JOIN
-		blog b 
-	ON
-		uid = bid
-	
+		uid = #{id} 
+	AND
+		b.uid = #{id}
+	AND
+		b.cid = c.id
+	AND
+		b.kid = k.id
 	</select>
 	
 	
