@@ -7,8 +7,6 @@
 package com.tianli.dao;
 
 import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
-
 import com.tianli.entity.User;
 
 /** 
