@@ -18,8 +18,8 @@ public class UserDaoTest {
 	
 	@Test
 	public void queryByIdTest() throws Exception{
-		String  name = "lse";
-		User user = userDao.queryUserByName(name);
+		int id = 1;
+		User user = userDao.queryUserById(id);
 		System.out.println(user);
 	}
 }

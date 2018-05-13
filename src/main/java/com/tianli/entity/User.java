@@ -6,6 +6,9 @@
  */
 package com.tianli.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /** 
  * @Description: 用户表
  * @author: TianLi
@@ -18,6 +21,16 @@ public class User {
 	private String name;
 	
 	private String passWord;
+	
+	List<Blog>myBlogList = new ArrayList<>(); 
+
+	public List<Blog> getMyBlogList() {
+		return myBlogList;
+	}
+
+	public void setMyBlogList(List<Blog> myBlogList) {
+		this.myBlogList = myBlogList;
+	}
 
 	public int getId() {
 		return id;
