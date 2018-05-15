@@ -1,0 +1,114 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	font: normal 12px arial;
+}
+
+.loginPage{
+	max-width: 1070px;
+	height: 540px;
+	margin: 20px auto;
+	background: url(../img/cover-default-2.jpg);
+	
+	padding: 20px;
+}
+
+.loginDiv{
+	width: 340px;
+	height: 360px;
+	/*background: #FFFFFF;*/
+	/*float: right;*/
+	margin:80px auto;
+}
+div.login{
+	margin: 35px 20px;
+}
+div.login_acount_text{
+	margin: 10px 0;
+	color: #3C3C3C;
+	font-size: 16px;
+	font-weight: bold;
+}
+.accountDiv, .passwordDiv{
+	width: 270px;
+	height: 40px;
+	border: 1px solid #cbcbcb;
+	color: #919191;
+	margin: 20px 0;
+}
+.login input{
+	border: 0;
+	background-color: transparent;
+}
+.login span{
+	font-size: 22px;
+	color: #606060;
+	display: inline-block;
+}
+
+
+.accountIcon , .passwordIcon{
+	background-color: #CBCBCB;
+	width: 40px;
+	height: 39px;
+	margin: 0px;
+	text-align: center;
+}
+
+span.glyphicon{
+	margin: 5px 0;
+}
+
+
+.remind{
+	margin: 10px 0;
+	color: #a94442;
+}
+
+.zhuceAndoforgetpassword{
+	margin: 20px 0;
+	
+}
+.zhuceAndoforgetpassword a{
+	color: #9999a6;
+	text-decoration: none;
+}
+
+.zhuceAndoforgetpassword a:hover{
+	color: #C40000;
+	text-decoration: none;
+}
+
+.zhuceAndoforgetpassword a.forgetpassword{
+	float: left;
+}
+.zhuceAndoforgetpassword a.zhuce{
+	float: right;
+}
+
+button.loginButton{
+	width: 280px;
+	height: 30px;
+	border: 0;
+	border-radius: 4px;
+	background: #c40000;
+	color: #FFFFFF;
+	text-align: center;
+}
+input,button{
+	font-family: inherit;
+	font-size: inherit;
+	line-height: inherit;
+}
+
+span.onError{
+	color: #C40000;
+	font-size: 12px;
+}
+span.onOk{
+	color: greenyellow;
+	font-size: 12px;
+}

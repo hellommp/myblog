@@ -1,0 +1,113 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	font: normal 12px arial;
+}
+
+.content{
+	position: relative;
+	max-width: 1250px;
+	height: auto;
+	margin: 40px auto;
+	background: #eae8df;
+	border-radius: 8px;
+	border: 1px solid #f8f7f4;
+	
+}
+
+.left_content{
+	width: auto;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	
+}
+.right_content{
+	position: absolute;
+	top: 0;
+	left: 330px;
+	width: auto;
+	/*margin-top: 20px;*/
+	margin-bottom: 20px;
+	
+}
+.pull_left{
+	float: left;
+	margin-left: 10px;
+}
+.pull_right{
+	float: right;
+	margin-right: 10px;
+}
+article a{
+	text-decoration: none;
+	cursor: pointer;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	/*white-space: nowrap;*//*文本不换行，超出部分显示。。。*/
+}
+article a:hover{
+	color: #C40000;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.articles{
+	position: relative;
+	width: 900px;
+	height: auto;
+	background: #f7f6f1;
+	border-radius:8px ;
+	margin: 20px auto;
+	padding: 10px 0;
+}
+
+/*置顶*/
+.stick{
+	position: absolute;
+	z-index: 99;
+	top: 0px;
+	background: url(../img/sticky.png) no-repeat;
+    background-size: auto auto;
+	background-size: cover;
+	width: 60px;
+	height: 60px;
+}
+
+.articles h4{
+	margin-top: 20px;
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+.entry-content{
+	text-indent: 2em;
+	border:1px solid #e8e2d2 ;
+	border-left:none ;
+	border-right: none;
+	width: 100%;
+	height: 120px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	
+}
+
+
+
+.entry-foot{
+	height: 30px;
+}
+.entry-foot span,a{
+	margin: 10px auto;
+	color: #acada6;
+}
+
+.entry-content a{
+	color: #776d54;
+	font-size: 14px;
+	
+}
+a.keyword span{
+	color: #679bfc;
+}
