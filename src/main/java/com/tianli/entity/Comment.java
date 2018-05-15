@@ -22,6 +22,8 @@ public class Comment {
 	private Date createDate;
 	
 	private User user;
+	
+	private Blog blog;
 
 	public int getId() {
 		return id;
