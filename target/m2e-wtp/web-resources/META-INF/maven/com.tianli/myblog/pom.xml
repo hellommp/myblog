@@ -1,13 +1,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.tianli</groupId>
-  <artifactId>myblog</artifactId>
-  <packaging>war</packaging>
-  <version>0.0.1-SNAPSHOT</version>
-  <name>myblog Maven Webapp</name>
-  <url>http://maven.apache.org</url>
-  <dependencies>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.tianli</groupId>
+	<artifactId>myblog</artifactId>
+	<packaging>war</packaging>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>myblog Maven Webapp</name>
+	<url>http://maven.apache.org</url>
+	<dependencies>
 		<!-- 单元测试 -->
 		<dependency>
 			<groupId>junit</groupId>
@@ -139,8 +139,10 @@
 			<artifactId>commons-collections</artifactId>
 			<version>3.2</version>
 		</dependency>
+
+
 	</dependencies>
-  <build>
-    <finalName>myblog</finalName>
-  </build>
+	<build>
+		<finalName>myblog</finalName>
+	</build>
 </project>

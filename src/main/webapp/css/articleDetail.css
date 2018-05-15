@@ -1,0 +1,33 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	font: normal 12px arial;
+}
+
+.content{
+	max-width: 1250px;
+	height: auto;
+	margin: 20px auto;
+	background: #eae8df;
+	border-radius: 8px;
+	border: 1px solid #f8f7f4;
+}
+
+.left_content{
+	width: 290px;
+	margin-top: 20px;
+}
+.right_content{
+	width: 930px;
+	margin-top: 20px;
+}
+.pull_left{
+	float: left;
+	margin-left: 10px;
+}
+.pull_right{
+	float: right;
+	margin-right: 10px;
+}

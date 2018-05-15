@@ -1,0 +1,71 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	font: normal 12px arial;
+}
+
+div.registerDiv{
+	width: 1013px;
+    margin: 20px auto;
+    text-align: center;
+}
+table.registerTable{
+	width: 450px;
+	height: 300px;
+	margin: 0px auto;
+    color: #3C3C3C;
+    /*table-layout: fixed;*/
+    margin-top: 20px;
+}
+
+
+div.registerErrorMessageDiv {
+    width: 600px;
+    margin: 0px auto;
+    height: 50px;
+   	visibility: hidden;
+    background: #C40000;
+    margin-top:50px ;
+}
+table{
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+td.set{
+	color: #3c3c3c;
+	font-weight: bold;
+}
+
+td input{
+	width: 190px;
+	height: 30px;
+	border: 1px solid #cbcbcb;
+	color: #919191;
+	
+}
+
+button.registerButton{
+	width: 155px;
+	height: 30px;
+	border: 0;
+	border-radius: 4px;
+	background: #c40000;
+	color: #FFFFFF;
+	text-align: center;
+}
+input,button{
+	font-family: inherit;
+	font-size: inherit;
+	line-height: inherit;
+}
+
+.onError{
+	color: #C40000;
+	font-size: 12px;
+}
+.onOk{
+	color: greenyellow;
+	font-size: 12px;
+}
