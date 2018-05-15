@@ -23,8 +23,30 @@ public class Blog {
 	
 	private Category category;
 	
-	private KeyWord keyWord;
+	private String keyWord;
 	
+	private User user;
+	
+	private String content;
+	
+	
+	
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -58,11 +80,11 @@ public class Blog {
 	}
 
 
-	public KeyWord getKeyWord() {
+	public String getKeyWord() {
 		return keyWord;
 	}
 
-	public void setKeyWord(KeyWord keyWord) {
+	public void setKeyWord(String keyWord) {
 		this.keyWord = keyWord;
 	}
 
@@ -73,20 +95,23 @@ public class Blog {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Blog(int id, String title, Date publishDate, Category category, KeyWord keyWord) {
+	@Override
+	public String toString() {
+		return "Blog [id=" + id + ", title=" + title + ", publishDate=" + publishDate + ", category=" + category
+				+ ", keyWord=" + keyWord + ", user=" + user + ", content=" + content + "]";
+	}
+
+	public Blog(int id, String title, Date publishDate, Category category, String keyWord, User user, String content) {
 		super();
 		this.id = id;
 		this.title = title;
 		this.publishDate = publishDate;
 		this.category = category;
 		this.keyWord = keyWord;
+		this.user = user;
+		this.content = content;
 	}
 
-	@Override
-	public String toString() {
-		return "Blog [id=" + id + ", title=" + title + ", publishDate=" + publishDate + ", category=" + category
-				+ ", keyWord=" + keyWord + "]";
-	}
-	
+
 	
 }

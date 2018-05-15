@@ -13,21 +13,18 @@
 			<id column="bid" property="id"/>
 			<result column="title" property="title"/>
 			<result column="publishdate" property="publishDate"/>
+			<result column="keyword" property="keyWord"/>
+			<result column="content" property="content"/>
 			
 			<association property="category" javaType="com.tianli.entity.Category">  
             	<result column="cid" property="id"/>  
             	<result column="cname" property="name"/>  
         	</association>  
         	
-        	<association property="keyWord" javaType="com.tianli.entity.KeyWord">  
-            	<result column="kid" property="id"/>  
-            	<result column="kname" property="name"/>  
-        	</association>  
-        
 		</collection>
 	</resultMap>
 	
-	<select id="queryUserByName" parameterType="string" resultMap="userBean">
+	<select id="queryUserByName" parameterType="string" resultType="User">
 	SELECT 
 		* 
 	FROM 
@@ -39,19 +36,16 @@
 	<select id="queryUserById" parameterType="int" resultMap="userBean">
 	SELECT
 		u.id 'uid',u.name 'uname',u.password,
-		b.id 'bid',b.title,b.publishdate,
-		c.id 'cid',c.name 'cname',
-		k.id 'kid',k.name 'kname'
+		b.id 'bid',b.title,b.publishdate,b.content,b.keyword,
+		c.id 'cid',c.name 'cname'
 	FROM
-		user u,blog b,category c,keyword k
+		user u,blog b,category c
 	WHERE
 		uid = #{id} 
 	AND
 		b.uid = #{id}
 	AND
 		b.cid = c.id
-	AND
-		b.kid = k.id
 	</select>
 	
 	

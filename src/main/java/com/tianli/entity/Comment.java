@@ -21,13 +21,22 @@ public class Comment {
 	
 	private Date createDate;
 	
-	private User user;
-	
 	private Blog blog;
 
 	public int getId() {
 		return id;
 	}
+
+	
+	public Blog getBlog() {
+		return blog;
+	}
+
+
+	public void setBlog(Blog blog) {
+		this.blog = blog;
+	}
+
 
 	public void setId(int id) {
 		this.id = id;
@@ -49,20 +58,12 @@ public class Comment {
 		this.createDate = createDate;
 	}
 
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
-
-	public Comment(int id, String content, Date createDate, User user) {
+	public Comment(int id, String content, Date createDate,Blog blog) {
 		super();
 		this.id = id;
 		this.content = content;
 		this.createDate = createDate;
-		this.user = user;
+		this.blog = blog;
 	}
 	
 	/**
@@ -72,10 +73,14 @@ public class Comment {
 		// TODO Auto-generated constructor stub
 	}
 
+
 	@Override
 	public String toString() {
-		return "Comment [id=" + id + ", content=" + content + ", createDate=" + createDate + ", user=" + user + "]";
+		return "Comment [id=" + id + ", content=" + content + ", createDate=" + createDate +
+				", blog=" + blog + "]";
 	}
+
+
 	
 	
 }
