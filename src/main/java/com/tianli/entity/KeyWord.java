@@ -42,4 +42,11 @@ public class KeyWord {
 	public KeyWord() {
 		super();
 	}
+
+	@Override
+	public String toString() {
+		return "KeyWord [id=" + id + ", name=" + name + "]";
+	}
+	
+	
 }
