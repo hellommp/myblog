@@ -10,5 +10,28 @@
 		(#{title},#{publishDate},#{category.id},#{keyWord},#{user.id},#{content})
 	</insert>
 	
+	<delete id="deleteBlog" parameterType="int">
+		DELETE FROM
+			blog
+		WHERE 
+			id = #{id}
+	</delete>
 
+	<update id="refreshBlog">
+		UPDATE 
+			blog
+		SET
+			content = #{content}
+		WHERE
+			id = #{id}
+	</update>
+	
+	<select id="queryBlogById" parameterType="int" resultType="com.tianli.entity.Blog">
+		SELECT 
+			*
+		FROM
+			Blog
+		WHERE
+			id = #{id}	
+	</select>
 </mapper>

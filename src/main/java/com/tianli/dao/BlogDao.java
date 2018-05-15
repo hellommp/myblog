@@ -9,6 +9,8 @@ package com.tianli.dao;
 
 import java.util.Date;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.tianli.entity.Blog;
 
 /** 
@@ -28,7 +30,7 @@ public interface BlogDao {
 	/**
 	 * 修改一篇文章
 	 */
-	Blog refreshBlog(int id);
+	void refreshBlog(@Param("id")int id,@Param("content")String content);
 	/**
 	 * 根据id查询一篇文章 
 	 */

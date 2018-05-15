@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Date;
 
 import org.junit.Test;
@@ -7,8 +8,10 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.tianli.dao.BlogDao;
+import com.tianli.dao.CommentDao;
 import com.tianli.entity.Blog;
 import com.tianli.entity.Category;
+import com.tianli.entity.Comment;
 import com.tianli.entity.User;
 import com.tianli.util.DateUtil;
 
@@ -26,46 +29,25 @@ import com.tianli.util.DateUtil;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration({"classpath:spring/spring-dao.xml","classpath:spring/spring-service.xml"})
-public class BlogDaoTest {
+public class CommentDaoTest {
 	
 	@Autowired
-	BlogDao blogDao;
+	CommentDao commentDao;
 	
 	@Test
-	public void insertBlogTest(){
-		Blog blog = new Blog();
-		Category category = new Category();
-		User user = new User();
-		user.setId(1);
-		category.setId(1);
-		
-		blog.setCategory(category);
-		blog.setContent("hello");
-		blog.setKeyWord("java");
-		blog.setPublishDate(DateUtil.d2t(new Date()));
-		blog.setTitle("321");
-		blog.setUser(user);
-		
-		blogDao.addBlog(blog);
-	}
-	@Test
-	public void updateBlogTest(){
-		int id = 1;
-		String content = "demo";
-		blogDao.refreshBlog(id, content);
+	public void addCommentTest(){
+		commentDao.addComment("666", DateUtil.d2t(new Date()), 2);
+		commentDao.addComment("777", DateUtil.d2t(new Date()), 2);
 	}
 	
 	@Test
-	public void queryBlogByIdTest(){
-		int id = 1;
-		Blog blog = blogDao.queryBlogById(id);
-		System.out.println(blog);
+	public void queryCommentsByIdTest(){
+		ArrayList<Comment>list = commentDao.queryCommentsById(2);
+		System.out.println(list.toString());
 	}
 	
 	@Test
-	public void deleteBlogTest(){
-		int id = 1;
-		blogDao.deleteBlog(id);
+	public void deleteCommentTest(){
+		commentDao.deleteComment(1);
 	}
-	
 }

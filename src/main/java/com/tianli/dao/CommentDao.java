@@ -9,6 +9,8 @@ package com.tianli.dao;
 import java.util.ArrayList;
 import java.util.Date;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.tianli.entity.Comment;
 import com.tianli.entity.User;
 
@@ -22,7 +24,7 @@ public interface CommentDao {
 	/**
 	 * 增加评论
 	 */
-	void addComment(String content,Date createDate,int bid);
+	void addComment(@Param("content")String content,@Param("createDate")Date createDate,@Param("bid")int bid);
 	/**
 	 *根据文章id查找评论 
 	 */
