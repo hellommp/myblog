@@ -21,10 +21,28 @@ import com.tianli.service.UserService;
 @RequestMapping("")
 public class AdminController {
 	
-	@RequestMapping("/admin_index")
+	@RequestMapping("/index")
 	public String adminindex(){
 		System.out.println("123");
 		return "admin/adminindex";
+	}
+	
+	@RequestMapping("/admin/writeBlog")
+	public String writeBlog(){
+		System.out.println("123");
+		return "admin/writeBlog";
+	}
+	
+	@RequestMapping("/admin/blgl")
+	public String blgl(){
+		System.out.println("123");
+		return "admin/blgl";
+	}
+	
+	@RequestMapping("/admin/blogManage")
+	public String blogManage(){
+		System.out.println("123");
+		return "admin/blogManage";
 	}
 	
 }

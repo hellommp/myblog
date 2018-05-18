@@ -1,3 +1,3 @@
 <% 
-	response.sendRedirect("../admin_index");
+	response.sendRedirect("../index");
 %>
