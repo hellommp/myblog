@@ -18,7 +18,14 @@ import com.tianli.service.UserService;
  * @date: 2018年5月15日 下午1:01:50  
  */
 @Controller
-@RequestMapping("/admin")
+@RequestMapping("")
 public class AdminController {
 	
+	@RequestMapping("/admin_index")
+	public String adminindex(){
+		System.out.println("123");
+		return "admin/adminindex";
+	}
+	
 }
+

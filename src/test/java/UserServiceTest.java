@@ -31,7 +31,7 @@ public class UserServiceTest {
 		
 		String name = "lse";
 		
-		User user = userService.getUser(name);
+		User user = userService.getUserByName(name);
 		
 		System.out.println(user);
 	}

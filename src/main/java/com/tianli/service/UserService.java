@@ -15,5 +15,7 @@ import com.tianli.entity.User;
  */
 public interface UserService {
 	
-	User getUser(String name);
+	User getUserByName(String name);
+	
+	User getUserById(int id);
 }
