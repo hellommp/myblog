@@ -21,7 +21,7 @@ import com.tianli.service.UserService;
 @RequestMapping("")
 public class AdminController {
 	
-	@RequestMapping("/admin_index")
+	@RequestMapping("/index")
 	public String adminindex(){
 		return "admin/adminindex";
 	}
@@ -55,6 +55,5 @@ public class AdminController {
 	public String foreindex(){
 		return "fore/frontPage";
 	}
-	
 }
 
