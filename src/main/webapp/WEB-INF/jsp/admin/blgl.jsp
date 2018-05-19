@@ -5,16 +5,20 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>博客类别管理</title>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:set value="${pageContext.request.contextPath }" var="blog" />
+
 <link rel="stylesheet" type="text/css"
-	href="jquery-easyui-1.5.5.1/themes/default/easyui.css">
+	href="${blog}/jquery-easyui-1.5.5.1/themes/default/easyui.css">
 <link rel="stylesheet" type="text/css"
-	href="jquery-easyui-1.5.5.1/themes/icon.css">
+	href="${blog}/jquery-easyui-1.5.5.1/themes/icon.css">
 <link rel="stylesheet" type="text/css"
-	href="jquery-easyui-1.5.5.1/demo.css">
-<script type="text/javascript" src="jquery-easyui-1.5.5.1/jquery.min.js"></script>
+	href="${blog}/jquery-easyui-1.5.5.1/demo.css">
+<script type="text/javascript" src="${blog}/jquery-easyui-1.5.5.1/jquery.min.js"></script>
 <script type="text/javascript"
-	src="jquery-easyui-1.5.5.1/jquery.easyui.min.js"></script>
-<script type="text/javascript" src="js/houtaiJS/blgl.js"></script>
+	src="${blog}/jquery-easyui-1.5.5.1/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="${blog}/js/houtaiJS/blgl.js"></script>
 </head>
 
 <body>

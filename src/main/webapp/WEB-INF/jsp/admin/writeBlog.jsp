@@ -56,11 +56,11 @@
 	</div>
 
 	<script type="text/javascript" charset="utf-8"
-		src="http://localhost:8080/myblog/utf8-jsp/ueditor.config.js"></script>
+		src="http://localhost:8080/myblog/ueditor/utf8-jsp/ueditor.config.js"></script>
 	<script type="text/javascript" charset="utf-8"
-		src="http://localhost:8080/myblog/utf8-jsp/ueditor.all.js"></script>
+		src="http://localhost:8080/myblog/ueditor/utf8-jsp/ueditor.all.js"></script>
 	<script type="text/javascript" charset="utf-8"
-		src="http://localhost:8080/myblog/utf8-jsp/lang/zh-cn/zh-cn.js"></script>
+		src="http://localhost:8080/myblog/ueditor/utf8-jsp/lang/zh-cn/zh-cn.js"></script>
 	<script type="text/javascript">
 			var ue = UE.getEditor('editor');
 	</script>
