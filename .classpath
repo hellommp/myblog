@@ -30,5 +30,9 @@
 	<classpathentry kind="lib" path="src/main/webapp/ueditor/utf8-jsp/jsp/lib/commons-io-2.4.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/ueditor/utf8-jsp/jsp/lib/json.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/ueditor/utf8-jsp/jsp/lib/ueditor-1.1.2.jar"/>
+<<<<<<< HEAD
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.8"/>
+=======
+>>>>>>> 62d97e293c9c20a994c1d80ebe5a49ae0e21df39
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

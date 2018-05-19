@@ -26,20 +26,34 @@ public class AdminController {
 		return "admin/adminindex";
 	}
 	
-	@RequestMapping("/admin/writeBlog")
+	@RequestMapping("admin/writeBlog")
 	public String writeBlog(){
 		return "admin/writeBlog";
 	}
 	
-	@RequestMapping("/admin/blgl")
+	@RequestMapping("admin/blgl")
 	public String blgl(){
 		return "admin/blgl";
 	}
 	
-	@RequestMapping("/admin/blogManage")
+	@RequestMapping("admin/blogManage")
 	public String blogManage(){
 		return "admin/blogManage";
 	}
 	
+	@RequestMapping("admin/comments")
+	public String comments(){
+		return "admin/comments";
+	}
+	
+	@RequestMapping("admin/commentManage")
+	public String commentManage(){
+		return "admin/commentManage";
+	}
+	
+	@RequestMapping("/fore_index")
+	public String foreindex(){
+		return "fore/frontPage";
+	}
 }
 

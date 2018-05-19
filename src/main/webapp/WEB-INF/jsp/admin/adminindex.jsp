@@ -51,37 +51,37 @@ body {
 			<div title="常用操作" data-options="selected:true,iconCls:'icon-item'"
 				style="padding: 10px">
 				<a
-					href="javascript:openTab('写博客','${blog}/admin/writeBlog','icon-writeblog')"
+					href="javascript:openTab('写博客','admin/writeBlog','icon-writeblog')"
 					class="easyui-linkbutton"
 					data-options="plain:true,iconCls:'icon-writeblog'"
 					style="width: 150px">写博客</a> <a
-					href="javascript:openTab('评论审核','${blog}/admin/writeBlog','icon-plsh')"
+					href="javascript:openTab('评论审核','admin/commentManage','icon-plsh')"
 					class="easyui-linkbutton"
 					data-options="plain:true,iconCls:'icon-plsh'" style="width: 150px">评论审核</a>
 			</div>
 			<div title="博客管理" data-options="iconCls:'icon-bkgl'"
 				style="padding: 10px;">
 				<a
-					href="javascript:openTab('写博客','${blog}/admin/writeBlog','icon-writeblog')"
+					href="javascript:openTab('写博客','admin/writeBlog','icon-writeblog')"
 					class="easyui-linkbutton"
 					data-options="plain:true,iconCls:'icon-writeblog'"
 					style="width: 150px;">写博客</a> <a
-					href="javascript:openTab('博客信息管理','${blog}/admin/blogManage','icon-bkgl')"
+					href="javascript:openTab('博客信息管理','admin/blogManage','icon-bkgl')"
 					class="easyui-linkbutton"
 					data-options="plain:true,iconCls:'icon-bkgl'" style="width: 150px;">博客信息管理</a>
 			</div>
 			<div title="博客类别管理" data-options="iconCls:'icon-bklb'"
 				style="padding: 10px">
-				<a href="javascript:openTab('博客类别信息管理','${blog}/admin/blgl','icon-bklb')"
+				<a href="javascript:openTab('博客类别信息管理','admin/blgl','icon-bklb')"
 					class="easyui-linkbutton"
 					data-options="plain:true,iconCls:'icon-bklb'" style="width: 150px;">博客类别信息管理</a>
 			</div>
 			<div title="评论管理" data-options="iconCls:'icon-plgl'"
 				style="padding: 10px">
-				<a href="javascript:openTab('评论审核','${blog}/admin/writeBlog','icon-plsh')"
+				<a href="javascript:openTab('评论审核','admin/commentManage','icon-plsh')"
 					class="easyui-linkbutton"
 					data-options="plain:true,iconCls:'icon-plsh'" style="width: 150px">评论审核</a>
-				<a href="javascript:openTab('评论信息管理','${blog}/admin/writeBlog','icon-plgl')"
+				<a href="javascript:openTab('评论信息管理','admin/comments','icon-plgl')"
 					class="easyui-linkbutton"
 					data-options="plain:true,iconCls:'icon-plgl'" style="width: 150px;">评论信息管理</a>
 			</div>
