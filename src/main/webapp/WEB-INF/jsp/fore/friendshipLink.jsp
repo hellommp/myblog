@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>友情链接</title>
-<%@ include file="headInclude.jsp"%>
+<%@ include file="../samePage/headInclude.jsp"%>
 <script type="text/javascript" src="js/friendshipLink.js"></script>
 
 <!--加载自己的css-->

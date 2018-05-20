@@ -6,7 +6,11 @@
  */
 package com.tianli.service;
 
+import java.util.List;
+import java.util.Map;
+
 import com.tianli.entity.Blog;
+import com.tianli.util.PageBean;
 
 /** 
  * @Description: TODO
@@ -22,4 +26,10 @@ public interface BlogService {
 	void refreshBlog(int id,String content);
 	
 	Blog queryBlogById(int id);
+	
+	// 分页查询博客
+    public List<Blog> listBlog(Map<String,Object> map);
+
+    // 分页查询博客
+    public PageBean<Blog> listBlog(String title,PageBean<Blog> pageBean);
 }

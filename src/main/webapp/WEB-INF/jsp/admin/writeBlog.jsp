@@ -5,16 +5,19 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>写博客</title>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <link rel="stylesheet" type="text/css"
 	href="http://localhost:8080/myblog/jquery-easyui-1.5.5.1/themes/default/easyui.css">
 <link rel="stylesheet" type="text/css"
 	href="http://localhost:8080/myblog/jquery-easyui-1.5.5.1/themes/icon.css">
 <link rel="stylesheet" type="text/css"
-	href="http://localhost:8080/myblog/jquery-easyui-1.5.5.1/demo.css">
-<script type="text/javascript" src="http://localhost:8080/myblog/jquery-easyui-1.5.5.1/jquery.min.js"></script>
+	href="http://localhost:8080/myblog/jquery-easyui-1.5.5.1/demo/demo.css">
+<script type="text/javascript"
+	src="http://localhost:8080/myblog/jquery-easyui-1.5.5.1/jquery.min.js"></script>
 <script type="text/javascript"
 	src="http://localhost:8080/myblog/jquery-easyui-1.5.5.1/jquery.easyui.min.js"></script>
-<script type="text/javascript" src="http://localhost:8080/myblog/js/houtaiJS/writeBlog.js"></script>
+<script type="text/javascript"
+	src="http://localhost:8080/myblog/js/houtaiJS/writeBlog.js"></script>
 </head>
 <body style="margin: 10px; font-family: microsoft yahei">
 	<div id="p" class="easyui-panel" title="编写博客" style="padding: 10px;">
@@ -31,8 +34,8 @@
 					name="blogType.id" style="width: 154px" editable="false"
 					panelHeight="auto">
 						<option value="">请选择博客类别...</option>
-						<c:forEach items="${blogTypeList }" var="blogType">
-							<option value="${blogType.id }">${blogType.typeName }</option>
+						<c:forEach items="${list }" var="category">
+							<option value="${category.id }">${category.name}</option>
 						</c:forEach>
 				</select></td>
 				<td></td>
@@ -62,7 +65,7 @@
 	<script type="text/javascript" charset="utf-8"
 		src="http://localhost:8080/myblog/ueditor/utf8-jsp/lang/zh-cn/zh-cn.js"></script>
 	<script type="text/javascript">
-			var ue = UE.getEditor('editor');
+		var ue = UE.getEditor('editor');
 	</script>
 
 </body>

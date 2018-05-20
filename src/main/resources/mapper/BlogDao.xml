@@ -5,33 +5,72 @@
 <mapper namespace="com.tianli.dao.BlogDao">
 	<insert id="addBlog" parameterType="com.tianli.entity.Blog">
 		INSERT INTO
-			blog(title,publishdate,cid,keyword,uid,content)
+		blog(title,publishdate,cid,keyword,uid,content)
 		VALUES
 		(#{title},#{publishDate},#{category.id},#{keyWord},#{user.id},#{content})
 	</insert>
-	
+
 	<delete id="deleteBlog" parameterType="int">
 		DELETE FROM
-			blog
-		WHERE 
-			id = #{id}
+		blog
+		WHERE
+		id = #{id}
 	</delete>
 
 	<update id="refreshBlog">
-		UPDATE 
-			blog
+		UPDATE
+		blog
 		SET
-			content = #{content}
+		content = #{content}
 		WHERE
-			id = #{id}
+		id = #{id}
 	</update>
-	
-	<select id="queryBlogById" parameterType="int" resultType="com.tianli.entity.Blog">
-		SELECT 
-			*
+
+	<select id="queryBlogById" parameterType="int"
+		resultType="com.tianli.entity.Blog">
+		SELECT
+		*
 		FROM
-			Blog
+		Blog
 		WHERE
-			id = #{id}	
+		id = #{id}
+	</select>
+
+	<resultMap id="BlogResult" type="com.tianli.entity.Blog">
+		<id column="bid" property="id" />
+		<result column="title" property="title" />
+		<result column="publishdate" property="publishDate" />
+		<result column="keyword" property="keyWord" />
+		<result column="content" property="content" />
+
+		<association property="category" javaType="com.tianli.entity.Category">
+			<result column="cid" property="id" />
+			<result column="cname" property="name" />
+		</association>
+		
+		<association property="user" javaType="com.tianli.entity.User">
+			<result column="uid" property="id"/>
+			<result column="uname" property="name"/>
+		</association>
+	</resultMap>
+
+
+
+	<select id="listBlog" parameterType="Map" resultMap="BlogResult">
+		SELECT 
+			 b.id 'bid',b.title,b.publishdate,b.keyword,b.content,
+			 c.id 'cid',c.name 'cname',
+			 u.id 'uid',u.name 'uname'
+		FROM 
+			blog b,category c,user u
+		ORDER BY publishdate DESC
+			LIMIT #{start},#{end}
+	</select>
+	
+	<select id="getTotal" resultType="int">
+		SELECT 
+			COUNT(*)
+		FROM
+			blog
 	</select>
 </mapper>

@@ -17,4 +17,11 @@
 		WHERE
 			id = #{id}
 	</delete>
+	
+	<select id="queryAllCategory" resultType="com.tianli.entity.Category">
+		SELECT 
+			*
+		FROM	
+			category
+	</select>
 </mapper>

@@ -4,8 +4,8 @@
  * @param row
  * @returns {string}
  */
-function formatBlogType(val, row) {
-	return val.typeName;
+function formatBlogType(val,row) {
+	return row.category.name;
 }
 
 /**

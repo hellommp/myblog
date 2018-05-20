@@ -6,6 +6,7 @@
  */
 package com.tianli.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /** 
@@ -13,7 +14,7 @@ import java.util.Date;
  * @author: TianLi
  * @date: 2018年5月8日 下午5:26:28  
  */
-public class Blog {
+public class Blog implements Serializable{
 
 	private  int id;
 	
@@ -21,11 +22,11 @@ public class Blog {
 	
 	private Date publishDate;
 	
-	private Category category;
+	private Category category = new Category();
 	
 	private String keyWord;
 	
-	private User user;
+	private User user = new User();
 	
 	private String content;
 	

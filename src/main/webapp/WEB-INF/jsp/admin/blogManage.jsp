@@ -14,7 +14,7 @@
 <link rel="stylesheet" type="text/css"
 	href="${blog}/jquery-easyui-1.5.5.1/themes/icon.css">
 <link rel="stylesheet" type="text/css"
-	href="${blog}/jquery-easyui-1.5.5.1/demo.css">
+	href="${blog}/jquery-easyui-1.5.5.1/demo/demo.css">
 <script type="text/javascript" src="${blog}/jquery-easyui-1.5.5.1/jquery.min.js"></script>
 <script type="text/javascript"
 	src="${blog}/jquery-easyui-1.5.5.1/jquery.easyui.min.js"></script>
@@ -23,14 +23,14 @@
 
 <body>
 	<table id="dg" title="博客管理" class="easyui-datagrid" fitColumns="true"
-		pagination="true" url="${blog}/admin/blog/listBlog.do" toolbar="#tb">
+		pagination="true" url="${blog}/blog/listBlog" toolbar="#tb">
 		<thead>
 			<tr>
 				<th field="cb" checkbox="true" align="center"></th>
 				<th field="id" width="20" align="center">编号</th>
 				<th field="title" width="200">标题</th>
-				<th field="releaseDate" width="100" align="center">发布日期</th>
-				<th field="blogType" width="100" align="center"
+				<th field="publishDate" width="100" align="center">发布日期</th>
+				<th field="category" width="100" align="center"
 					formatter="formatBlogType">博客类型</th>
 			</tr>
 		</thead>

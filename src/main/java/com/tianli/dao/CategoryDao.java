@@ -6,6 +6,10 @@
  */
 package com.tianli.dao;
 
+import java.util.ArrayList;
+
+import com.tianli.entity.Category;
+
 /** 
  * @Description: TODO
  * @author: TianLi
@@ -21,4 +25,8 @@ public interface CategoryDao {
 	 * 删除一个分类
 	 */
 	void deleteCategory(int id);
+	/**
+	 * 查找所有分类
+	 */
+	ArrayList<Category>queryAllCategory();
 }

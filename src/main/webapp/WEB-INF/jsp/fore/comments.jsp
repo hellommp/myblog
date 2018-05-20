@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>评论页面</title>
-<%@ include file="headInclude.jsp"%>
+<%@ include file="../samePage/headInclude.jsp"%>
 <!--加载评论div的css-->
 <link rel="stylesheet" href="css/comments.css" />
 <script type="text/javascript" src="js/comments.js"></script>

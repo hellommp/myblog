@@ -6,6 +6,7 @@
  */
 package com.tianli.entity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +15,7 @@ import java.util.List;
  * @author: TianLi
  * @date: 2018年5月8日 下午5:23:56  
  */
-public class User {
+public class User implements Serializable{
 
 	private int id;
 	

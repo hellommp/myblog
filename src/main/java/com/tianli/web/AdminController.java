@@ -9,7 +9,9 @@ package com.tianli.web;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
+import com.tianli.dao.CategoryDao;
 import com.tianli.service.UserService;
 
 /** 
@@ -21,14 +23,19 @@ import com.tianli.service.UserService;
 @RequestMapping("")
 public class AdminController {
 	
+	@Autowired
+	CategoryDao CategoryDao;
+	
 	@RequestMapping("/index")
 	public String adminindex(){
 		return "admin/adminindex";
 	}
 	
 	@RequestMapping("admin/writeBlog")
-	public String writeBlog(){
-		return "admin/writeBlog";
+	public ModelAndView writeBlog(){
+		ModelAndView mv = new ModelAndView("/admin/writeBlog");
+		mv.addObject("list", CategoryDao.queryAllCategory());
+		return mv;
 	}
 	
 	@RequestMapping("admin/blgl")
@@ -38,6 +45,7 @@ public class AdminController {
 	
 	@RequestMapping("admin/blogManage")
 	public String blogManage(){
+		ModelAndView mv = new ModelAndView();
 		return "admin/blogManage";
 	}
 	

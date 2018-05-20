@@ -6,12 +6,14 @@
  */
 package com.tianli.entity;
 
+import java.io.Serializable;
+
 /** 
  * @Description: 博客类型表
  * @author: TianLi
  * @date: 2018年5月8日 下午5:30:11  
  */
-public class Category {
+public class Category implements Serializable{
 
 	private int id;
 	
