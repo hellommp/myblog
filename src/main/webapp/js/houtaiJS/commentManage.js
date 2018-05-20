@@ -1,15 +1,15 @@
 /**
- * 格式化博客类型获取其类型名称
+ * 格式化评论获取其类型名称
  * @param val
  * @param row
  * @returns {string}
  */
 function formatBlogType(val, row) {
-	return val.name;
+	return val.typeName;
 }
 
 /**
- * 按照title查询博客信息
+ * 按照内容查询评论
  */
 function searchBlog() {
 	$("#dg").datagrid("load", {
@@ -18,7 +18,7 @@ function searchBlog() {
 }
 
 /**
- * 删除博客信息
+ * 删除评论信息
  * 可以多选
  */
 function deleteBlog() {
@@ -54,26 +54,6 @@ function deleteBlog() {
 			}, "json");
 		}
 	});
-}
-/**
- *打开修改博客界面
- */
-function openBlogModifyTab() {
-	//获取选中要修改的行
-	var selectedRows = $("#dg").datagrid("getSelections");
-	//确保被选中行只能为一行
-	if (selectedRows.length != 1) {
-		$.messager.alert("系统提示", "请选择一个要修改的博客类别");
-		return;
-	}
-	//获取选中行id
-	var row = selectedRows[0];
-	//打开对话框并且设置标题
-	$("#dlg").dialog("open").dialog("setTitle", "修改博客类别信息");
-	//将数组回显对话框中
-	$("#fm").form("load", row); //会自动识别name属性，将row中对应的数据，填充到form表单对应的name属性中
-	//在url中添加id 后台就能识别是更新操作
-	url = "${blog}/admin/blogType/save.do?id=" + row.id;
 }
 /**
  * 重新载入数据

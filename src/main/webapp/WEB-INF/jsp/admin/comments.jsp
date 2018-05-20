@@ -17,7 +17,7 @@
 <script type="text/javascript" src="${blog}/jquery-easyui-1.5.5.1/jquery.min.js"></script>
 <script type="text/javascript"
 	src="${blog}/jquery-easyui-1.5.5.1/jquery.easyui.min.js"></script>
-<script type="text/javascript" src="${blog}/js/houtaiJS/blogManage.js"></script>
+<script type="text/javascript" src="${blog}/js/houtaiJS/commentManage.js"></script>
 </head>
 
 <body>
@@ -41,9 +41,7 @@
 				href="javascript:searchBlog()" class="easyui-linkbutton"
 				iconCls="icon-search" plain="true">搜索</a> <a
 				href="javascript:deleteBlog()" class="easyui-linkbutton"
-				iconCls="icon-remove" plain="true">删除</a> <a
-				href="javascript:openBlogModifyTab()" class="easyui-linkbutton"
-				iconCls="icon-edit" plain="true">修改</a> <a
+				iconCls="icon-remove" plain="true">删除</a><a
 				href="javascript:reload()" class="easyui-linkbutton"
 				iconCls="icon-reload" plain="true">刷新</a>
 		</div>
