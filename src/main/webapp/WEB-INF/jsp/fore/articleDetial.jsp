@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>文章详情</title>
 
-<%@ include file="headInclude.jsp"%>
+<%@ include file="../samePage/headInclude.jsp"%>
 <!--加载评论div的css-->
 <link rel="stylesheet" href="${blog}/css/comments.css" />
 <link rel="stylesheet" href="${blog}/css/articleDetail.css" />

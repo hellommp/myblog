@@ -2,7 +2,6 @@ $(function(){
 	
 });
  
- 
  /**
   * 发布博客
   */
@@ -28,9 +27,9 @@ $(function(){
  		$.messager.alert("系统提示", "请编辑博客内容！");
  	} else {
  		//ajax请求 请求后台写博客接口
- 		$.post("${blog}/admin/blog/save.do", {
+ 		$.post("../blog/save", {
  			'title': title,
- 			'blogType.id': blogTypeId,
+ 			'category.id': blogTypeId,
  			'content': content,
  			/*'summary': summary,*/
  			'keyWord': keyWord,

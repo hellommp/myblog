@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Date;
 
 import org.junit.Test;
@@ -7,6 +8,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.tianli.dao.CategoryDao;
+import com.tianli.entity.Category;
 
 
 
@@ -38,5 +40,10 @@ public class CategoryDaoTest {
 	public void deleteCategory(){
 		int id = 2;
 		categoryDao.deleteCategory(id);
+	}
+	@Test
+	public void queryAllCategory(){
+		ArrayList<Category>list = categoryDao.queryAllCategory();
+		System.out.println(list.toString());
 	}
 }

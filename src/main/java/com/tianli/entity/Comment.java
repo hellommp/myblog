@@ -6,6 +6,7 @@
  */
 package com.tianli.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /** 
@@ -13,7 +14,7 @@ import java.util.Date;
  * @author: TianLi
  * @date: 2018年5月8日 下午5:33:44  
  */
-public class Comment {
+public class Comment implements Serializable{
 
 	private int id;
 	
