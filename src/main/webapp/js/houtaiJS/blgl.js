@@ -1,8 +1,9 @@
 $(function() {
 	//datagrid初始化
 	$('#dg').datagrid({
+		
 		//请求数据的url
-		url: '${blog}/admin/blogType/list.do',
+		url: '../category/category_list',
 		//载入提示信息
 		loadMsg: 'loading...',
 		//水平自动展开，如果设置此属性，则不会有水平滚动条，演示冻结列时，该参数不要设置
@@ -25,7 +26,7 @@ $(function() {
 				//打开对话框并且设置标题
 				$("#dlg").dialog("open").dialog("setTitle", "添加博客类别信息");
 				//将url设置为添加
-				url = "${blog}/admin/blogType/save.do";
+				url = "../category/save";
 			}
 		}, '-', {
 			iconCls: 'icon-edit',
@@ -107,15 +108,10 @@ $(function() {
 		],
 		columns: [
 			[{
-					field: 'typeName',
+					field: 'name',
 					title: '博客分类名称',
 					width: 300
 				}, //typeName 字段
-				{
-					field: 'orderNum',
-					title: '博客类别排序',
-					width: 300
-				}, //orderNum 字段
 			]
 		],
 	});

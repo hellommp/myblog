@@ -4,24 +4,60 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.tianli.dao.CategoryDao">
 
-	<insert id="addCategory" parameterType="string">
+	<insert id="addCategory" parameterType="Category">
 		INSERT INTO
-			category(name)
+		category(name)
 		VALUES
-			(#{name})		
+		(#{name})
 	</insert>
-	
-	<delete id="deleteCategory" parameterType="int">
-		DELETE FROM
-			category
+
+	<update id="updateCategory" parameterType="Category">
+		UPDATE
+		category
+		<set>
+			<if test="name!=null and name!=''">
+				name=#{name}
+			</if>
+		</set>
 		WHERE
 			id = #{id}
+	</update>
+
+	<delete id="deleteCategory" parameterType="int">
+		DELETE FROM
+		category
+		WHERE
+		id = #{id}
 	</delete>
-	
+
 	<select id="queryAllCategory" resultType="com.tianli.entity.Category">
-		SELECT 
-			*
-		FROM	
-			category
+		SELECT
+		*
+		FROM
+		category
+	</select>
+	<select id="listByPage" resultType="Category">
+		SELECT
+		id,name
+		FROM
+		category
+		LIMIT
+		#{start} ,#{end}
+	</select>
+	<select id="getTotal" resultType="int">
+		SELECT
+		COUNT(id)
+		FROM
+		category
+	</select>
+
+	<select id="queryCategoryById" parameterType="int"
+		resultType="com.tianli.entity.Category">
+		SELECT
+		*
+		FROM
+		category
+		WHERE
+		id = #{id}
 	</select>
 </mapper>

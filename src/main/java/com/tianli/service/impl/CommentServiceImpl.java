@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import com.tianli.dao.CommentDao;
 import com.tianli.entity.Comment;
 import com.tianli.service.CommentService;
+import com.tianli.util.PageBean;
 
 /** 
  * @Description: TODO
@@ -41,6 +42,16 @@ public class CommentServiceImpl implements CommentService {
 	@Override
 	public void deleteComment(int id) {
 		commentDao.deleteComment(id);
+	}
+
+	@Override
+	public PageBean<Comment> listByPage(PageBean<Comment> pageBean) {
+		
+		 //查询分页结果
+        pageBean.setResult(commentDao.listByPage(pageBean.getStart(),pageBean.getEnd()-pageBean.getStart()));
+        //查询记录总数
+        pageBean.setTotal(commentDao.getTotal());
+        return pageBean;
 	}
 
 }

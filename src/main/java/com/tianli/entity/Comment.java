@@ -23,7 +23,9 @@ public class Comment implements Serializable{
 	private Date createDate;
 	
 	private Blog blog;
-
+	
+	private String email; 
+	
 	public int getId() {
 		return id;
 	}
@@ -59,14 +61,32 @@ public class Comment implements Serializable{
 		this.createDate = createDate;
 	}
 
-	public Comment(int id, String content, Date createDate,Blog blog) {
+
+	
+	/**
+	 * @param id
+	 * @param content
+	 * @param createDate
+	 * @param blog
+	 * @param email
+	 */
+	public Comment(int id, String content, Date createDate, Blog blog, String email) {
 		super();
 		this.id = id;
 		this.content = content;
 		this.createDate = createDate;
 		this.blog = blog;
+		this.email = email;
 	}
-	
+
+
+	@Override
+	public String toString() {
+		return "Comment [id=" + id + ", content=" + content + ", createDate=" + createDate + ", blog=" + blog
+				+ ", email=" + email + "]";
+	}
+
+
 	/**
 	 * 
 	 */
@@ -75,10 +95,22 @@ public class Comment implements Serializable{
 	}
 
 
-	@Override
-	public String toString() {
-		return "Comment [id=" + id + ", content=" + content + ", createDate=" + createDate +
-				", blog=" + blog + "]";
+
+
+
+	/**
+	 * @return the email
+	 */
+	public String getEmail() {
+		return email;
+	}
+
+
+	/**
+	 * @param email the email to set
+	 */
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 

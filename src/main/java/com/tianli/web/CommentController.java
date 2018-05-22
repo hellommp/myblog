@@ -24,7 +24,9 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.tianli.dao.CategoryDao;
 import com.tianli.entity.Category;
+import com.tianli.entity.Comment;
 import com.tianli.service.CategoryService;
+import com.tianli.service.CommentService;
 import com.tianli.util.PageBean;
 import com.tianli.util.ResponseUtil;
 
@@ -34,21 +36,21 @@ import com.tianli.util.ResponseUtil;
  * @date: 2018年5月19日 下午3:55:48  
  */
 @Controller
-@RequestMapping("/category")
-public class CategoryController {
+@RequestMapping("/comment")
+public class CommentController {
 	
 	@Autowired
-	CategoryService categoryService;
+	CommentService commentService;
 	
-	@RequestMapping("/category_list")
+	@RequestMapping("/listComment")
 	public @ResponseBody List<Category> categoryList(@RequestParam(value = "page", required = false) String page,
 	        @RequestParam(value = "rows", required = false) String rows,
 	        HttpServletResponse response) throws Exception {
 	    //定义分页bean
-	    PageBean<Category> pageBean = new PageBean<Category>(Integer.parseInt(page)
+	    PageBean<Comment> pageBean = new PageBean<Comment>(Integer.parseInt(page)
 	            ,Integer.parseInt(rows));
 	    //拿到分页结果已经记录总数的pageBean
-	    pageBean = categoryService.listByPage(pageBean);
+	    pageBean = commentService.listByPage(pageBean);
 	    //使用阿里巴巴的fastJson创建JSONObject
 	    JSONObject result = new JSONObject();
 	    //通过fastJson序列化list为jsonArray
@@ -63,25 +65,4 @@ public class CategoryController {
 	    return null;
 		
 	}
-	// 添加和更新博客类别
-    @RequestMapping("/save")
-    public String save(Category category, HttpServletResponse response)
-            throws Exception {
-
-        int resultTotal = 0; // 接收返回结果记录数
-        if (Integer.valueOf(category.getId()) == null) { // 说明是第一次插入
-            resultTotal = categoryService.addCategory(category);
-        } else { // 有id表示修改
-            resultTotal = categoryService.updateCategory(category);
-        }
-
-        JSONObject result = new JSONObject();
-        if (resultTotal > 0) {
-            result.put("success", true);
-        } else {
-            result.put("success", false);
-        }
-        ResponseUtil.write(response, result);
-        return null;
-    }
 }

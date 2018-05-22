@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import com.tianli.entity.Comment;
+import com.tianli.util.PageBean;
 
 /** 
  * @Description: TODO
@@ -24,4 +25,6 @@ public interface CommentService {
 
 	void deleteComment(int id);
 
+	 //分页查询
+    PageBean<Comment> listByPage(PageBean<Comment> pageBean);
 }

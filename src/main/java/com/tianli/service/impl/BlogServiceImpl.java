@@ -30,8 +30,8 @@ public class BlogServiceImpl implements BlogService {
 	BlogDao blogDao;
 	
 	@Override
-	public void addBlog(Blog blog) {
-		blogDao.addBlog(blog);
+	public int addBlog(Blog blog) {
+		return blogDao.addBlog(blog);
 	}
 
 	@Override
@@ -40,8 +40,8 @@ public class BlogServiceImpl implements BlogService {
 	}
 
 	@Override
-	public void refreshBlog(int id, String content) {
-		blogDao.refreshBlog(id, content);
+	public int refreshBlog(Blog blog) {
+		return blogDao.refreshBlog(blog);
 	}
 
 	@Override
@@ -59,14 +59,18 @@ public class BlogServiceImpl implements BlogService {
 	@Override
 	public PageBean<Blog> listBlog(String title, PageBean<Blog> pageBean) {
 		
-		Map<String,Object> map = new HashMap<String,Object>();
-        //总记录放入pageBean
-        pageBean.setTotal(blogDao.getTotal());
-        map.put("start",pageBean.getStart());
-        map.put("end",pageBean.getEnd());
-        //把分页结果放入pageBean
-        pageBean.setResult(blogDao.listBlog(map));
-        return pageBean;
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("title", title);
+		map.put("start", pageBean.getStart());
+		map.put("end", pageBean.getEnd()-pageBean.getStart());
+		pageBean.setTotal(blogDao.getTotal(map));
+		pageBean.setResult(blogDao.listBlog(map));
+		return pageBean;
 	}
+
+
+
+
+	
 
 }

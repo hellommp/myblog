@@ -24,4 +24,35 @@
 		WHERE 
 			id = #{id}
 	</delete>
+	<resultMap id="CommentResult" type="com.tianli.entity.Comment">
+		<id column="cid" property="id" />
+		<result column="content" property="content" />
+		<result column="createdate" property="createDate" />
+		<result column="email" property="email" />
+
+		<association property="blog" javaType="com.tianli.entity.Blog">
+			<result column="bid" property="id" />
+			<result column="title" property="title" />
+		</association>
+	</resultMap>
+	
+	<select id="listByPage" resultMap="CommentResult">
+		SELECT
+			c.id 'cid',c.*,b.title,b.id 'bid'
+		FROM
+			comment c, blog b
+		WHERE
+			c.bid = b.id
+		LIMIT 
+		    #{start},#{end}
+		
+	</select>
+	
+	<select id="getTotal" resultType="int">
+		SELECT 
+			COUNT(*)
+		FROM
+			comment
+	</select>
+	
 </mapper>

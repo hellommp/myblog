@@ -34,7 +34,7 @@ public class CategoryDaoTest {
 	@Test
 	public void addCategory(){
 		String  name = "hello";
-		categoryDao.addCategory(name);
+		//categoryDao.addCategory(name);
 	}
 	@Test
 	public void deleteCategory(){

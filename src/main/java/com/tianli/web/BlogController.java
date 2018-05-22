@@ -45,15 +45,29 @@ public class BlogController {
 	@Autowired
 	BlogService blogService;
 	
-	//(#{title},#{publishDate},#{category.id},#{keyWord},#{user.id},#{content})
 	@RequestMapping("/save")
 	@ResponseBody
-	public  Object  saveBlog( Blog blog){
-		System.out.println("123");
-		blog.getUser().setId(1);
-		blog.setPublishDate(DateUtil.d2t(new Date()));
-		blogService.addBlog(blog);
-		return "123";
+	public  Object  saveBlog(Blog blog,HttpServletResponse response) throws Exception{
+		int resultTotal = 0;
+        if(Integer.valueOf(blog.getId())!=null){
+            //更新操作
+            resultTotal = blogService.refreshBlog(blog);
+//            //更新索引
+//            blogIndex.updateIndex(blog);
+        }else{
+            //新增操作
+            resultTotal = blogService.addBlog(blog);
+//            //添加索引
+//            blogIndex.addIndex(blog);
+        }
+        JSONObject result = new JSONObject();
+        if(resultTotal > 0) {
+            result.put("success", true);
+        } else {
+            result.put("success", false);
+        }
+        ResponseUtil.write(response, result);
+        return null;
 	}
 	
 	//后台分页查询博客信息
@@ -63,11 +77,10 @@ public class BlogController {
             @RequestParam(value = "rows", required = false) String rows,
             Blog s_blog,
             HttpServletResponse response) throws Exception {
-
         PageBean<Blog> pageBean = new PageBean<Blog>(Integer.parseInt(page), Integer.parseInt(rows));
 
         pageBean = blogService.listBlog(s_blog.getTitle(), pageBean);
-
+        
         //创建json对象
         JSONObject result = new JSONObject();
         //设置json序列化日期格式
@@ -83,7 +96,20 @@ public class BlogController {
         result.put("rows", array);
         result.put("total", pageBean.getTotal());
         //返回
-        System.out.println(result);
+        ResponseUtil.write(response, result);
+        return null;
+    }
+    @RequestMapping("/delete")
+    public String deleBlog(String ids,HttpServletResponse response) throws Exception{
+    	String[] idsStr = ids.split(",");
+        for(int i = 0; i < idsStr.length; i++) {
+            int id = Integer.parseInt(idsStr[i]);
+            //先删除博客所关联的评论 现在没有完成评论的功能 先注释
+            //commentService.deleteCommentByBlogId(id);
+            blogService.deleteBlog(id);
+        }
+        JSONObject result = new JSONObject();
+        result.put("success", true);
         ResponseUtil.write(response, result);
         return null;
     }

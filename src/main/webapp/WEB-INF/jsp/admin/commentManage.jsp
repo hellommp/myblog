@@ -18,20 +18,21 @@
 <script type="text/javascript" src="${blog}/jquery-easyui-1.5.5.1/jquery.min.js"></script>
 <script type="text/javascript"
 	src="${blog}/jquery-easyui-1.5.5.1/jquery.easyui.min.js"></script>
-<script type="text/javascript" src="${blog}/js/houtaiJS/blogManage.js"></script>
+<script type="text/javascript" src="${blog}/js/houtaiJS/commentManage.js"></script>
 </head>
 
 <body>
 	<table id="dg" title="评论管理" class="easyui-datagrid" fitColumns="true"
-		pagination="true" url="${blog}/admin/blog/listBlog.do" toolbar="#tb">
+		pagination="true" url="${blog}/comment/commentManage" toolbar="#tb">
 		<thead>
 			<tr>
 				<th field="cb" checkbox="true" align="center"></th>
 				<th field="id" width="20" align="center">编号</th>
 				<th field="title" width="200">评论人邮箱</th>
+				<th field="blog" width="100" align="center" 
+					formatter="formatBlog">文章标题</th>
 				<th field="releaseDate" width="100" align="center">评论日期</th>
-				<th field="blogType" width="100" align="center"
-					formatter="formatBlogType">评论内容</th>
+				<th field="blogType" width="100" align="center">评论内容</th>
 			</tr>
 		</thead>
 	</table>
@@ -40,8 +41,6 @@
 			 <a
 				href="javascript:deleteBlog()" class="easyui-linkbutton"
 				iconCls="icon-remove" plain="true">删除</a> <a
-				href="javascript:openBlogModifyTab()" class="easyui-linkbutton"
-				iconCls="icon-edit" plain="true">修改</a> <a
 				href="javascript:reload()" class="easyui-linkbutton"
 				iconCls="icon-reload" plain="true">刷新</a>
 		</div>

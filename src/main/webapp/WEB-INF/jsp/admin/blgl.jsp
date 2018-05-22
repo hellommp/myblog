@@ -30,14 +30,8 @@
 			<table cellspacing="8px">
 				<tr>
 					<td>博客类别名称</td>
-					<td><input type="text" id="typeName" name="typeName"
+					<td><input type="text" id="name" name="name"
 						class="easyui-validatebox" required="true"></td>
-				</tr>
-				<tr>
-					<td>博客类别排序</td>
-					<td><input type="text" id="orderNum" name="orderNum"
-						class="easyui-numberbox" required="true" style="width: 60px">&nbsp;(博客类别会根据序号从小到大排列)
-					</td>
 				</tr>
 			</table>
 		</form>
