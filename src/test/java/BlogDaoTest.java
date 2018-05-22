@@ -52,7 +52,7 @@ public class BlogDaoTest {
 	public void updateBlogTest(){
 		int id = 1;
 		String content = "demo";
-		blogDao.refreshBlog(id, content);
+		//blogDao.refreshBlog(id, content);
 	}
 	
 	@Test

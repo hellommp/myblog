@@ -24,7 +24,7 @@ public interface BlogDao {
 	/**
 	 * 添加一篇文章
 	 */
-	void addBlog(Blog blog);
+	int addBlog(Blog blog);
 	/**
 	 * 删除一篇文章
 	 */
@@ -32,14 +32,17 @@ public interface BlogDao {
 	/**
 	 * 修改一篇文章
 	 */
-	void refreshBlog(@Param("id")int id,@Param("content")String content);
+	int refreshBlog(Blog blog);
 	/**
 	 * 根据id查询一篇文章 
 	 */
 	Blog queryBlogById(int id);
-	 // 分页查询博客
-    List<Blog> listBlog(Map<String, Object> map);
+	
+	// 分页查询博客
+    public List<Blog> listBlog(Map<String, Object> map);
+
     // 获取总记录数
-    int getTotal();
+    public Long getTotal(Map<String ,Object> map);
+    
 }
 

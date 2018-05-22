@@ -23,6 +23,22 @@
 
 <body>
 	<table id="dg"></table>
+<<<<<<< HEAD
+=======
+	<div id="dlg" class="easyui-dialog"
+		style="width: 500px; height: 180px; padding: 10px 20px" closed="true"
+		buttons="#dlg-buttons">
+		<form id="fm" method="post">
+			<table cellspacing="8px">
+				<tr>
+					<td>博客类别名称</td>
+					<td><input type="text" id="name" name="name"
+						class="easyui-validatebox" required="true"></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+>>>>>>> 5d9269d45e8d30851c65e3cdfa5d2037a1e8118d
 
 	<div id="dlg-buttons">
 		<div>

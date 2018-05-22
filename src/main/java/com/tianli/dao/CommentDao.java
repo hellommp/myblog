@@ -8,6 +8,7 @@ package com.tianli.dao;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
@@ -33,5 +34,17 @@ public interface CommentDao {
 	 * 删除评论
 	 */
 	void deleteComment(int id);
-	
+	/**
+     * 分页查询评论信息
+     * @param start
+     * @param end
+     * @return
+     */
+    List<Comment> listByPage(@Param("start") Integer start, @Param("end") Integer end);
+
+    /**
+     * 查询总记录数
+     * @return
+     */
+    int getTotal();
 }

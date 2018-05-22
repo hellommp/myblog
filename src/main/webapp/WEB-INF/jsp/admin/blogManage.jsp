@@ -67,7 +67,7 @@
 					<td>
 						<select id="category" class="easyui-combobox" style="width: 154px" 
 							name="category" data-options="panelHeight:'auto',valueField:'id',
-							textField:'name', url:'${blog}/category/category_list'">
+							textField:'name', url:'${blog}/category/category_all'">
 							<option name="category"></option>
 							<c:forEach items="${list }" var="category">
 								<option value="${category.id }">${category.name}</option>

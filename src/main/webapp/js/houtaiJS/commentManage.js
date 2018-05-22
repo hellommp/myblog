@@ -1,27 +1,39 @@
+﻿
 /**
+<<<<<<< HEAD
  * 格式化博客获取其文章标题名称
+=======
+ * 格式化博客获取其文章标题
+>>>>>>> 5d9269d45e8d30851c65e3cdfa5d2037a1e8118d
  * @param val
  * @param row
  * @returns {string}
  */
+<<<<<<< HEAD
 function formatBlog(val, row) {
 	return val.typeName;
+=======
+function formatBlog(val,row) {
+	return val.title;
+>>>>>>> 5d9269d45e8d30851c65e3cdfa5d2037a1e8118d
 }
 
 /**
- * 按照内容查询评论
+ * 按照title查询评论
  */
-function searchBlog() {
+function searchComment() {
+
 	$("#dg").datagrid("load", {
 		"title": $("#s_title").val()
 	});
 }
 
 /**
- * 删除评论信息
+ * 删除评论
  * 可以多选
  */
-function deleteBlog() {
+function deleteComment() {
+
 	//获取选中要删除的行
 	var selectedRows = $("#dg").datagrid("getSelections");
 	//判断是否有选择的行

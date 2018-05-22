@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
+﻿<%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -18,20 +18,22 @@
 <script type="text/javascript" src="${blog}/jquery-easyui-1.5.5.1/jquery.min.js"></script>
 <script type="text/javascript"
 	src="${blog}/jquery-easyui-1.5.5.1/jquery.easyui.min.js"></script>
-<script type="text/javascript" src="${blog}/js/houtaiJS//commentManage.js"></script>
+<script type="text/javascript" src="${blog}/js/houtaiJS/commentManage.js"></script>
+
 </head>
 
 <body>
 	<table id="dg" title="评论管理" class="easyui-datagrid" fitColumns="true"
-		pagination="true" url="${blog}/admin/blog/listBlog.do" toolbar="#tb">
+		pagination="true" url="${blog}/comment/commentManage" toolbar="#tb">
 		<thead>
 			<tr>
 				<th field="cb" checkbox="true" align="center"></th>
 				<th field="id" width="20" align="center">编号</th>
 				<th field="title" width="200">评论人邮箱</th>
+				<th field="blog" width="100" align="center" 
+					formatter="formatBlog">文章标题</th>
 				<th field="releaseDate" width="100" align="center">评论日期</th>
-				<th field="blogType" width="100" align="center"
-					formatter="formatBlogType">评论内容</th>
+				<th field="blogType" width="100" align="center">评论内容</th>
 			</tr>
 		</thead>
 	</table>

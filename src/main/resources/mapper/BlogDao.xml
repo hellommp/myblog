@@ -17,14 +17,30 @@
 		id = #{id}
 	</delete>
 
-	<update id="refreshBlog">
-		UPDATE
-		blog
-		SET
-		content = #{content}
-		WHERE
-		id = #{id}
-	</update>
+	 <update id="refreshBlog" parameterType="Blog">
+        update blog
+        <set>
+            <if test="title!=null and title!=''">
+                title=#{title},
+            </if>
+            <if test="content!=null and content!=''">
+                content=#{content},
+            </if>
+            <if test="category.id!=null">
+                cid=#{cid},
+            </if>
+            <if test="publishDate!=null">
+                publishdate=#{publishDate},
+            </if>
+            <if test="user.id!=null">
+                uid=#{uid},
+            </if>
+            <if test="keyWord!=null and keyWord!=''">
+                keyword=#{keyWord}
+            </if>
+        </set>
+        where id=#{id}
+    </update>
 
 	<select id="queryBlogById" parameterType="int"
 		resultType="com.tianli.entity.Blog">
@@ -37,45 +53,49 @@
 	</select>
 
 	<resultMap id="BlogResult" type="com.tianli.entity.Blog">
-		<id column="bid" property="id" />
+		<id column="id" property="id" />
 		<result column="title" property="title" />
 		<result column="publishdate" property="publishDate" />
 		<result column="keyword" property="keyWord" />
 		<result column="content" property="content" />
 
-		<association property="category" javaType="com.tianli.entity.Category">
-			<result column="cid" property="id" />
-			<result column="cname" property="name" />
+		<association property="category" column="cid" select="com.tianli.dao.CategoryDao.queryCategoryById">
 		</association>
 		
-		<association property="user" javaType="com.tianli.entity.User">
-			<result column="uid" property="id"/>
-			<result column="uname" property="name"/>
-		</association>
+		 <association property="user" column="uid" select="com.tianli.dao.UserDao.queryUserById">
+		</association> 
 	</resultMap>
 
 
 
 	<select id="listBlog" parameterType="Map" resultMap="BlogResult">
-		SELECT 
-			 b.id 'bid',b.title,b.publishdate,b.keyword,b.content,
-			 c.id 'cid',c.name 'cname',
-			 u.id 'uid',u.name 'uname'
-		FROM 
-			blog b, category c, user u
-		WHERE
-			b.cid = c.id
-		AND
-			b.uid = u.id
-			
-		ORDER BY publishdate DESC
-		LIMIT #{start},#{end}
-	</select>
-	
-	<select id="getTotal" resultType="int">
-		SELECT 
-			COUNT(*)
-		FROM
-			blog
-	</select>
+        SELECT * FROM blog
+        <where>
+            <if test="title!=null and title!=''">
+                and title like "%"#{title}"%"
+            </if>
+            <if test="cid!=null and cid!=''">
+                and cid=#{cid}
+            </if>
+            <if test="uid!=null and uid!=''">
+                and uid=#{uid}
+            </if>
+        </where>
+        ORDER BY publishdate DESC
+        <if test="start!=null and end!=null">
+            limit #{start},#{end}
+        </if>
+    </select>
+
+    <select id="getTotal" parameterType="Map" resultType="Long">
+        SELECT COUNT(*) FROM blog
+        <where>
+            <if test="title!=null and title!=''">
+                and title like "%"#{title}"%"
+            </if>
+            <if test="typeId!=null and typeId!=''">
+                and cid=#{cid}
+            </if>
+        </where>
+    </select>
 </mapper>

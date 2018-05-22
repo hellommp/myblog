@@ -19,11 +19,11 @@ import com.tianli.util.PageBean;
  */
 public interface BlogService {
 
-	void addBlog(Blog blog);
+	int addBlog(Blog blog);
 	
 	void deleteBlog(int id);
 	
-	void refreshBlog(int id,String content);
+	int refreshBlog(Blog blog);
 	
 	Blog queryBlogById(int id);
 	
