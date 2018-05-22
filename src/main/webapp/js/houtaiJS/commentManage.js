@@ -1,21 +1,12 @@
 ﻿
 /**
-<<<<<<< HEAD
- * 格式化博客获取其文章标题名称
-=======
  * 格式化博客获取其文章标题
->>>>>>> 5d9269d45e8d30851c65e3cdfa5d2037a1e8118d
  * @param val
  * @param row
  * @returns {string}
  */
-<<<<<<< HEAD
-function formatBlog(val, row) {
-	return val.typeName;
-=======
 function formatBlog(val,row) {
 	return val.title;
->>>>>>> 5d9269d45e8d30851c65e3cdfa5d2037a1e8118d
 }
 
 /**

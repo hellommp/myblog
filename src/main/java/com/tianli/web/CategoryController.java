@@ -39,14 +39,14 @@ public class CategoryController {
 	
 	@Autowired
 	CategoryService categoryService;
-	CategoryDao categoryDao;
 	
 	/**
 	 * 查询全部博客分类
 	 * **/
 	@RequestMapping("/category_all")
 	public @ResponseBody ArrayList<Category> categoryList(){
-		ArrayList<Category>list = categoryDao.queryAllCategory();
+		ArrayList<Category>list = categoryService.queryAllCategory();
+		System.out.println("list"+list);
 		return list;
 	}
 	

@@ -24,7 +24,7 @@
 
 <body>
 	<table id="dg" title="评论管理" class="easyui-datagrid" fitColumns="true"
-		pagination="true" url="${blog}/comment/commentManage" toolbar="#tb">
+		pagination="true" url="${blog}/comment/listComment" toolbar="#tb">
 		<thead>
 			<tr>
 				<th field="cb" checkbox="true" align="center"></th>

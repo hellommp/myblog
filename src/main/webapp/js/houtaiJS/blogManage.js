@@ -6,8 +6,6 @@
  */
 function formatBlogType(val,row) {
 	return val.name;
-<<<<<<< HEAD
-=======
 }
 
 /**
@@ -56,7 +54,6 @@ function deleteBlog() {
 			}, "json");
 		}
 	});
->>>>>>> 5d9269d45e8d30851c65e3cdfa5d2037a1e8118d
 }
 /**
  *打开修改博客界面
@@ -77,12 +74,6 @@ function openBlogModifyTab() {
 	//将数组回显对话框中
 	$("#fm").form("load", row); //会自动识别name属性，将row中对应的数据，填充到form表单对应的name属性中
 	
-	//创建select框
-/*	$('#category').combobox({
-		url : '../category/category_list',
-		valueField:'id',
-		textField:'name'
-	});*/
 	//根据已知的类型值让下拉框进行选中
 	console.log(row.category.name);
 	$("#category option[value='"+row.category.name+"']").attr("selected","selected");
