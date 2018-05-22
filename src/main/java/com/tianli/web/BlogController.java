@@ -65,8 +65,10 @@ public class BlogController {
             HttpServletResponse response) throws Exception {
 
         PageBean<Blog> pageBean = new PageBean<Blog>(Integer.parseInt(page), Integer.parseInt(rows));
+        System.out.println(page+"当前页数" +rows);
 
         pageBean = blogService.listBlog(s_blog.getTitle(), pageBean);
+        System.out.println("结果"+pageBean);
 
         //创建json对象
         JSONObject result = new JSONObject();

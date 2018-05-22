@@ -16,8 +16,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.tianli.dao.CategoryDao;
 import com.tianli.entity.Category;
+import com.tianli.util.ResponseUtil;
 
 /** 
  * @Description: TODO
@@ -32,8 +37,16 @@ public class CategoryController {
 	CategoryDao categoryDao;
 	
 	@RequestMapping("/category_list")
-	public @ResponseBody List<Category> categoryList(){
+	public @ResponseBody ArrayList<Category> categoryList(){
 		ArrayList<Category>list = categoryDao.queryAllCategory();
+	/*	//创建json对象
+        JSONObject result = new JSONObject();
+        String jsonStr = JSONObject.toJSONString(list);
+        //得到json数组
+        JSONArray array = JSON.parseArray(jsonStr);
+        result.put("category", array);
+        //返回
+        System.out.println("返回"+result);*/
 		return list;
 	}
 }

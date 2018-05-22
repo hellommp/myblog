@@ -23,25 +23,6 @@
 
 <body>
 	<table id="dg"></table>
-	<div id="dlg" class="easyui-dialog"
-		style="width: 500px; height: 180px; padding: 10px 20px" closed="true"
-		buttons="#dlg-buttons">
-		<form id="fm" method="post">
-			<table cellspacing="8px">
-				<tr>
-					<td>博客类别名称</td>
-					<td><input type="text" id="typeName" name="typeName"
-						class="easyui-validatebox" required="true"></td>
-				</tr>
-				<tr>
-					<td>博客类别排序</td>
-					<td><input type="text" id="orderNum" name="orderNum"
-						class="easyui-numberbox" required="true" style="width: 60px">&nbsp;(博客类别会根据序号从小到大排列)
-					</td>
-				</tr>
-			</table>
-		</form>
-	</div>
 
 	<div id="dlg-buttons">
 		<div>

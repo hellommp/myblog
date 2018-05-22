@@ -33,8 +33,10 @@ public class AdminController {
 	
 	@RequestMapping("admin/writeBlog")
 	public ModelAndView writeBlog(){
+		System.out.println(1111);
 		ModelAndView mv = new ModelAndView("/admin/writeBlog");
 		mv.addObject("list", CategoryDao.queryAllCategory());
+		
 		return mv;
 	}
 	

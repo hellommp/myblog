@@ -13,6 +13,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.github.pagehelper.PageHelper;
 import com.tianli.dao.BlogDao;
 import com.tianli.entity.Blog;
 import com.tianli.service.BlogService;
@@ -60,12 +61,16 @@ public class BlogServiceImpl implements BlogService {
 	public PageBean<Blog> listBlog(String title, PageBean<Blog> pageBean) {
 		
 		Map<String,Object> map = new HashMap<String,Object>();
+		
         //总记录放入pageBean
         pageBean.setTotal(blogDao.getTotal());
+        
         map.put("start",pageBean.getStart());
-        map.put("end",pageBean.getEnd());
+        map.put("end",pageBean.getEnd()-pageBean.getStart());
         //把分页结果放入pageBean
         pageBean.setResult(blogDao.listBlog(map));
+        
+        System.out.println(blogDao.listBlog(map));
         return pageBean;
 	}
 

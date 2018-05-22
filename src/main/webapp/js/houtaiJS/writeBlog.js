@@ -35,7 +35,7 @@ $(function(){
  			'keyWord': keyWord,
  			/*'contentNoTag': contentNoTag*/
  		}, function(result) {
- 			if (result.success) {
+ 			if (result=="123") {
  				$.messager.alert("系统提示", "博客发布成功！");
  				clearValues();
  			} else {

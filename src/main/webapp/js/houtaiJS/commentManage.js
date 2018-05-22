@@ -1,10 +1,10 @@
 /**
- * 格式化评论获取其类型名称
+ * 格式化博客获取其文章标题名称
  * @param val
  * @param row
  * @returns {string}
  */
-function formatBlogType(val, row) {
+function formatBlog(val, row) {
 	return val.typeName;
 }
 

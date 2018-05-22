@@ -62,9 +62,14 @@
 			 c.id 'cid',c.name 'cname',
 			 u.id 'uid',u.name 'uname'
 		FROM 
-			blog b,category c,user u
+			blog b, category c, user u
+		WHERE
+			b.cid = c.id
+		AND
+			b.uid = u.id
+			
 		ORDER BY publishdate DESC
-			LIMIT #{start},#{end}
+		LIMIT #{start},#{end}
 	</select>
 	
 	<select id="getTotal" resultType="int">
