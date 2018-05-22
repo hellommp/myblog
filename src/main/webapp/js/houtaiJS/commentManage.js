@@ -1,4 +1,4 @@
-
+﻿
 /**
  * 格式化博客获取其文章标题
  * @param val
@@ -13,6 +13,7 @@ function formatBlog(val,row) {
  * 按照title查询评论
  */
 function searchComment() {
+
 	$("#dg").datagrid("load", {
 		"title": $("#s_title").val()
 	});
@@ -23,6 +24,7 @@ function searchComment() {
  * 可以多选
  */
 function deleteComment() {
+
 	//获取选中要删除的行
 	var selectedRows = $("#dg").datagrid("getSelections");
 	//判断是否有选择的行
