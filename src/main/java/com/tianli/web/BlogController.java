@@ -79,9 +79,9 @@ public class BlogController {
             Blog s_blog,
             HttpServletResponse response) throws Exception {
         PageBean<Blog> pageBean = new PageBean<Blog>(Integer.parseInt(page), Integer.parseInt(rows));
+        System.out.println(page+"当前页数" +rows);
 
         pageBean = blogService.listBlog(s_blog.getTitle(), pageBean);
-        
         //创建json对象
         JSONObject result = new JSONObject();
         //设置json序列化日期格式

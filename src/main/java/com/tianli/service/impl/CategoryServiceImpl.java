@@ -6,6 +6,8 @@
  */
 package com.tianli.service.impl;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -48,6 +50,12 @@ public class CategoryServiceImpl implements CategoryService {
 	public Integer updateCategory(Category category) {
 		
 		return categoryDao.updateCategory(category);
+	}
+
+	@Override
+	public ArrayList<Category> queryAllCategory() {
+		// TODO Auto-generated method stub
+		return categoryDao.queryAllCategory();
 	}
 
 }

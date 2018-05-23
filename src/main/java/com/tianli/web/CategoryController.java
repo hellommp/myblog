@@ -6,9 +6,6 @@
  */
 package com.tianli.web;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,7 +40,20 @@ public class CategoryController {
 	
 	@Autowired
 	BlogService blogService;
+
+	/**
+	 * 查询全部博客分类
+	 * **/
+	@RequestMapping("/category_all")
+	public @ResponseBody ArrayList<Category> categoryList(){
+		ArrayList<Category>list = categoryService.queryAllCategory();
+		System.out.println("list"+list);
+		return list;
+	}
 	
+	/**
+	*分页查询博客分类
+	*/
 	@RequestMapping("/category_list")
 	public @ResponseBody List<Category> categoryList(@RequestParam(value = "page", required = false) String page,
 	        @RequestParam(value = "rows", required = false) String rows,

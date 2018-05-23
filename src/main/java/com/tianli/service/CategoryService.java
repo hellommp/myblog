@@ -6,6 +6,8 @@
  */
 package com.tianli.service;
 
+import java.util.ArrayList;
+
 import com.tianli.entity.Category;
 import com.tianli.util.PageBean;
 
@@ -24,4 +26,7 @@ public interface CategoryService {
 
 	//分页查询
     PageBean<Category> listByPage(PageBean<Category> pageBean);
+    
+    //查询全部分类
+    ArrayList<Category>queryAllCategory();
 }

@@ -3,7 +3,11 @@ $(function() {
 	$('#dg').datagrid({
 		
 		//请求数据的url
+<<<<<<< HEAD
+		url: '../blog/listBlog',
+=======
 		url: '../category/category_list',
+>>>>>>> 5d9269d45e8d30851c65e3cdfa5d2037a1e8118d
 		//载入提示信息
 		loadMsg: 'loading...',
 		//水平自动展开，如果设置此属性，则不会有水平滚动条，演示冻结列时，该参数不要设置
@@ -28,6 +32,7 @@ $(function() {
 				//将url设置为添加
 				url = "../category/save";
 			}
+<<<<<<< HEAD
 		}, '-', {
 			iconCls: 'icon-edit',
 			text: '修改',
@@ -49,6 +54,9 @@ $(function() {
 				url = "../category/save?id=" + row.id;
 			}
 		}, '-', {
+=======
+		},  '-', {
+>>>>>>> 83e6201026c355765419f6146601b61860a33d5f
 			iconCls: 'icon-edit',
 			text: '删除',
 			handler: function() {
@@ -108,10 +116,22 @@ $(function() {
 		],
 		columns: [
 			[{
+<<<<<<< HEAD
+					field: 'title',
+					title: '博客分类名称',
+					width: 300
+				}, //typeName 字段
+				{
+					field: 'publishDate',
+					title: '博客类别排序',
+					width: 300
+				}, //orderNum 字段
+=======
 					field: 'name',
 					title: '博客分类名称',
 					width: 300
 				}, //typeName 字段
+>>>>>>> 5d9269d45e8d30851c65e3cdfa5d2037a1e8118d
 			]
 		],
 	});
