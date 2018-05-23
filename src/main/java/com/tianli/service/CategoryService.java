@@ -16,12 +16,12 @@ import com.tianli.util.PageBean;
  */
 public interface CategoryService {
 
-	int addCategory(Category category);
+	Integer addCategory(Category category);
 	
-	int updateCategory(Category category);
+	Integer updateCategory(Category category);
 	
-	void deleteCategory(int id);
-	
+	Integer deleteCategory(Integer id);
+
 	//分页查询
     PageBean<Category> listByPage(PageBean<Category> pageBean);
 }

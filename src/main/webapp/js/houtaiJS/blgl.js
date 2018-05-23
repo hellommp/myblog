@@ -46,7 +46,7 @@ $(function() {
 				//将数组回显对话框中
 				$("#fm").form("load", row); //会自动识别name属性，将row中对应的数据，填充到form表单对应的name属性中
 				//在url中添加id 后台就能识别是更新操作
-				url = "${blog}/admin/blogType/save.do?id=" + row.id;
+				url = "../category/save?id=" + row.id;
 			}
 		}, '-', {
 			iconCls: 'icon-edit',
@@ -70,7 +70,7 @@ $(function() {
 				//提示是否确认删除
 				$.messager.confirm("系统提示", "<font color=red>您确定要删除选中的" + selectedRows.length + "条数据么？</font>", function(r) {
 					if (r) {
-						$.post("${blog}/admin/blogType/delete.do", {
+						$.post("../category/delete", {
 							ids: ids
 						}, function(result) {
 							if (result.exist) {

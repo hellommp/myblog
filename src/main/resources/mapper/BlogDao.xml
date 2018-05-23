@@ -10,13 +10,18 @@
 		(#{title},#{publishDate},#{category.id},#{keyWord},#{user.id},#{content})
 	</insert>
 
-	<delete id="deleteBlog" parameterType="int">
+	<delete id="deleteBlog" parameterType="java.lang.Integer">
 		DELETE FROM
 		blog
 		WHERE
 		id = #{id}
 	</delete>
-
+	<delete id="deleteBlogByCategory" parameterType="java.lang.Integer">
+		DELETE FROM
+		blog
+		WHERE
+		cid = #{cid}
+	</delete>
 	 <update id="refreshBlog" parameterType="Blog">
         update blog
         <set>
@@ -33,7 +38,7 @@
                 publishdate=#{publishDate},
             </if>
             <if test="user.id!=null">
-                uid=#{uid},
+                uid=#{user.id},
             </if>
             <if test="keyWord!=null and keyWord!=''">
                 keyword=#{keyWord}
@@ -42,7 +47,7 @@
         where id=#{id}
     </update>
 
-	<select id="queryBlogById" parameterType="int"
+	<select id="queryBlogById" parameterType="java.lang.Integer"
 		resultType="com.tianli.entity.Blog">
 		SELECT
 		*

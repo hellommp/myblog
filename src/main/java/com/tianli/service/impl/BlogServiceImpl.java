@@ -30,22 +30,22 @@ public class BlogServiceImpl implements BlogService {
 	BlogDao blogDao;
 	
 	@Override
-	public int addBlog(Blog blog) {
+	public Integer addBlog(Blog blog) {
 		return blogDao.addBlog(blog);
 	}
 
 	@Override
-	public void deleteBlog(int id) {
+	public void deleteBlog(Integer id) {
 		blogDao.deleteBlog(id);
 	}
 
 	@Override
-	public int refreshBlog(Blog blog) {
+	public Integer refreshBlog(Blog blog) {
 		return blogDao.refreshBlog(blog);
 	}
 
 	@Override
-	public Blog queryBlogById(int id) {
+	public Blog queryBlogById(Integer id) {
 
 		return blogDao.queryBlogById(id);
 	}
@@ -66,6 +66,12 @@ public class BlogServiceImpl implements BlogService {
 		pageBean.setTotal(blogDao.getTotal(map));
 		pageBean.setResult(blogDao.listBlog(map));
 		return pageBean;
+	}
+
+	@Override
+	public Integer deleteBlogByCategory(Integer cid) {
+		
+		return blogDao.deleteBlogByCategory(cid);
 	}
 
 

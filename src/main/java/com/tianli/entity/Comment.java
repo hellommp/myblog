@@ -16,7 +16,7 @@ import java.util.Date;
  */
 public class Comment implements Serializable{
 
-	private int id;
+	private Integer id;
 	
 	private String content;
 	
@@ -26,7 +26,7 @@ public class Comment implements Serializable{
 	
 	private String email; 
 	
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
@@ -41,7 +41,7 @@ public class Comment implements Serializable{
 	}
 
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -70,7 +70,7 @@ public class Comment implements Serializable{
 	 * @param blog
 	 * @param email
 	 */
-	public Comment(int id, String content, Date createDate, Blog blog, String email) {
+	public Comment(Integer id, String content, Date createDate, Blog blog, String email) {
 		super();
 		this.id = id;
 		this.content = content;

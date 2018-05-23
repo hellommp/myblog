@@ -26,13 +26,13 @@ public class CategoryServiceImpl implements CategoryService {
 	CategoryDao categoryDao;
 	
 	@Override
-	public int addCategory(Category category) {
+	public Integer addCategory(Category category) {
 		return categoryDao.addCategory(category);
 	}
 
 	@Override
-	public void deleteCategory(int id) {
-		categoryDao.deleteCategory(id);
+	public Integer deleteCategory(Integer id) {
+		return categoryDao.deleteCategory(id);
 	}
 
 	@Override
@@ -45,7 +45,7 @@ public class CategoryServiceImpl implements CategoryService {
 	}
 
 	@Override
-	public int updateCategory(Category category) {
+	public Integer updateCategory(Category category) {
 		
 		return categoryDao.updateCategory(category);
 	}

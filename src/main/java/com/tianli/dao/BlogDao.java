@@ -24,20 +24,23 @@ public interface BlogDao {
 	/**
 	 * 添加一篇文章
 	 */
-	int addBlog(Blog blog);
+	Integer addBlog(Blog blog);
 	/**
 	 * 删除一篇文章
 	 */
-	void deleteBlog(int id);
+	Integer deleteBlog(Integer id);
 	/**
 	 * 修改一篇文章
 	 */
-	int refreshBlog(Blog blog);
+	Integer refreshBlog(Blog blog);
 	/**
 	 * 根据id查询一篇文章 
 	 */
-	Blog queryBlogById(int id);
-	
+	Blog queryBlogById(Integer id);
+	/**
+	 * 删除一篇文章(根据类别)
+	 */
+	Integer deleteBlogByCategory(Integer cid);
 	// 分页查询博客
     public List<Blog> listBlog(Map<String, Object> map);
 

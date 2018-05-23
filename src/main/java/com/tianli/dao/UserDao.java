@@ -28,6 +28,6 @@ public interface UserDao {
 	User queryUserByName(String name);
 	
 	//通过id查询用户
-	User queryUserById(int id);
+	User queryUserById(Integer id);
 	
 }

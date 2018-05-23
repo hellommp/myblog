@@ -17,5 +17,5 @@ public interface UserService {
 	
 	User getUserByName(String name);
 	
-	User getUserById(int id);
+	User getUserById(Integer id);
 }

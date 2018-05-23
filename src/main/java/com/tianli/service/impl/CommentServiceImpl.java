@@ -29,18 +29,18 @@ public class CommentServiceImpl implements CommentService {
 	CommentDao commentDao;
 	
 	@Override
-	public void addComment(String content, Date createDate, int bid) {
+	public void addComment(String content, Date createDate, Integer bid) {
 		commentDao.addComment(content, createDate, bid);
 	}
 
 	@Override
-	public ArrayList<Comment> queryCommentsById(int id) {
+	public ArrayList<Comment> queryCommentsById(Integer id) {
 
 		return commentDao.queryCommentsById(id);
 	}
 
 	@Override
-	public void deleteComment(int id) {
+	public void deleteComment(Integer id) {
 		commentDao.deleteComment(id);
 	}
 

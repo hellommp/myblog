@@ -20,17 +20,18 @@ import com.tianli.entity.Category;
  */
 public interface CategoryDao {
 	
-	Category queryCategoryById(int id);
+	Category queryCategoryById(Integer id);
 	/**
 	 * 增加一个分类
 	 */
-	int addCategory(Category category);
+	Integer addCategory(Category category);
 	
-	int updateCategory(Category category);
+	Integer updateCategory(Category category);
 	/**
 	 * 删除一个分类
+	 * @return 
 	 */
-	void deleteCategory(int id);
+	Integer deleteCategory(Integer id);
 	/**
 	 * 查找所有分类
 	 */
@@ -47,5 +48,5 @@ public interface CategoryDao {
      * 查询总记录数
      * @return
      */
-    int getTotal();
+    Integer getTotal();
 }
