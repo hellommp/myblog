@@ -23,7 +23,7 @@
 			id = #{id}
 	</update>
 
-	<delete id="deleteCategory" parameterType="int">
+	<delete id="deleteCategory" parameterType="java.lang.Integer">
 		DELETE FROM
 		category
 		WHERE
@@ -44,14 +44,14 @@
 		LIMIT
 		#{start} ,#{end}
 	</select>
-	<select id="getTotal" resultType="int">
+	<select id="getTotal" resultType="java.lang.Integer">
 		SELECT
 		COUNT(id)
 		FROM
 		category
 	</select>
 
-	<select id="queryCategoryById" parameterType="int"
+	<select id="queryCategoryById" parameterType="java.lang.Integer"
 		resultType="com.tianli.entity.Category">
 		SELECT
 		*

@@ -48,7 +48,7 @@
 		
 	</select>
 	
-	<select id="getTotal" resultType="int">
+	<select id="getTotal" resultType="java.lang.Integer">
 		SELECT 
 			COUNT(*)
 		FROM

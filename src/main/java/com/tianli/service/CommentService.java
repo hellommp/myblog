@@ -19,11 +19,11 @@ import com.tianli.util.PageBean;
  */
 public interface CommentService {
 	
-	void addComment(String content,Date createDate,int bid);
+	void addComment(String content,Date createDate,Integer bid);
 
-	ArrayList<Comment>queryCommentsById(int id);
+	ArrayList<Comment>queryCommentsById(Integer id);
 
-	void deleteComment(int id);
+	void deleteComment(Integer id);
 
 	 //分页查询
     PageBean<Comment> listByPage(PageBean<Comment> pageBean);

@@ -33,7 +33,7 @@
 		name=#{name}
 	</select>
 	
-	<select id="queryUserById" parameterType="int" resultMap="userBean">
+	<select id="queryUserById" parameterType="Integer" resultMap="userBean">
 	SELECT
 		u.id 'uid',u.name 'uname',u.password,
 		b.id 'bid',b.title,b.publishdate,b.content,b.keyword,

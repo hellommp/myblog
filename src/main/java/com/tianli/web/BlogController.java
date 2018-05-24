@@ -49,7 +49,8 @@ public class BlogController {
 	@ResponseBody
 	public  Object  saveBlog(Blog blog,HttpServletResponse response) throws Exception{
 		int resultTotal = 0;
-        if(Integer.valueOf(blog.getId())!=null){
+		blog.getUser().setId(1);
+        if(blog.getId()!=null){
             //更新操作
             resultTotal = blogService.refreshBlog(blog);
 //            //更新索引

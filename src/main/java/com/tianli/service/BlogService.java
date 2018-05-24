@@ -19,13 +19,15 @@ import com.tianli.util.PageBean;
  */
 public interface BlogService {
 
-	int addBlog(Blog blog);
+	Integer addBlog(Blog blog);
 	
-	void deleteBlog(int id);
+	void deleteBlog(Integer id);
 	
-	int refreshBlog(Blog blog);
+	Integer refreshBlog(Blog blog);
 	
-	Blog queryBlogById(int id);
+	Integer deleteBlogByCategory(Integer cid);
+	
+	Blog queryBlogById(Integer id);
 	
 	// 分页查询博客
     public List<Blog> listBlog(Map<String,Object> map);

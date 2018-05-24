@@ -17,7 +17,7 @@ import java.util.List;
  */
 public class User implements Serializable{
 
-	private int id;
+	private Integer id;
 	
 	private String name;
 	
@@ -33,11 +33,11 @@ public class User implements Serializable{
 		this.myBlogList = myBlogList;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -57,7 +57,7 @@ public class User implements Serializable{
 		this.passWord = passWord;
 	}
 
-	public User(int id, String name, String passWord) {
+	public User(Integer id, String name, String passWord) {
 		super();
 		this.id = id;
 		this.name = name;

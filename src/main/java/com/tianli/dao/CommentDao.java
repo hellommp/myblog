@@ -25,15 +25,15 @@ public interface CommentDao {
 	/**
 	 * 增加评论
 	 */
-	void addComment(@Param("content")String content,@Param("createDate")Date createDate,@Param("bid")int bid);
+	void addComment(@Param("content")String content,@Param("createDate")Date createDate,@Param("bid")Integer bid);
 	/**
 	 *根据文章id查找评论 
 	 */
-	ArrayList<Comment>queryCommentsById(int id);
+	ArrayList<Comment>queryCommentsById(Integer id);
 	/**
 	 * 删除评论
 	 */
-	void deleteComment(int id);
+	void deleteComment(Integer id);
 	/**
      * 分页查询评论信息
      * @param start
@@ -46,5 +46,5 @@ public interface CommentDao {
      * 查询总记录数
      * @return
      */
-    int getTotal();
+    Integer getTotal();
 }

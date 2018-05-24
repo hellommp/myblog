@@ -6,9 +6,6 @@
  */
 package com.tianli.web;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +21,7 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.tianli.dao.CategoryDao;
 import com.tianli.entity.Category;
+import com.tianli.service.BlogService;
 import com.tianli.service.CategoryService;
 import com.tianli.util.PageBean;
 import com.tianli.util.ResponseUtil;
@@ -40,6 +38,9 @@ public class CategoryController {
 	@Autowired
 	CategoryService categoryService;
 	
+	@Autowired
+	BlogService blogService;
+
 	/**
 	 * 查询全部博客分类
 	 * **/
@@ -82,7 +83,8 @@ public class CategoryController {
             throws Exception {
 
         int resultTotal = 0; // 接收返回结果记录数
-        if (Integer.valueOf(category.getId()) == null) { // 说明是第一次插入
+        if (category.getId() == null) { // 说明是第一次插入
+        	
             resultTotal = categoryService.addCategory(category);
         } else { // 有id表示修改
             resultTotal = categoryService.updateCategory(category);
@@ -94,6 +96,23 @@ public class CategoryController {
         } else {
             result.put("success", false);
         }
+        ResponseUtil.write(response, result);
+        return null;
+    }
+ // 删除博客类别
+    @RequestMapping("/delete")
+    public String delete(String ids, HttpServletResponse response)
+            throws Exception {
+
+    	String[] idsStr = ids.split(",");
+        for(int i = 0; i < idsStr.length; i++) {
+            int id = Integer.parseInt(idsStr[i]);
+            //先删除相对应博客类别的所有文章
+            blogService.deleteBlogByCategory(id);
+            categoryService.deleteCategory(id);
+        }
+        JSONObject result = new JSONObject();
+        result.put("success", true);
         ResponseUtil.write(response, result);
         return null;
     }

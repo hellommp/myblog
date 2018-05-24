@@ -16,7 +16,7 @@ import java.util.Date;
  */
 public class Blog implements Serializable{
 
-	private  int id;
+	private  Integer id;
 	
 	private String title;
 	
@@ -48,11 +48,11 @@ public class Blog implements Serializable{
 		this.user = user;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -102,7 +102,7 @@ public class Blog implements Serializable{
 				+ ", keyWord=" + keyWord + ", user=" + user + ", content=" + content + "]";
 	}
 
-	public Blog(int id, String title, Date publishDate, Category category, String keyWord, User user, String content) {
+	public Blog(Integer id, String title, Date publishDate, Category category, String keyWord, User user, String content) {
 		super();
 		this.id = id;
 		this.title = title;
