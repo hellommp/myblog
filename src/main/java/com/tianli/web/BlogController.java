@@ -68,7 +68,7 @@ public class BlogController {
             result.put("success", false);
         }
         ResponseUtil.write(response, result);
-        return null;
+        return "json";
 	}
 	
 	//后台分页查询博客信息

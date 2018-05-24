@@ -23,7 +23,6 @@
 
 <body>
 	<table id="dg"></table>
-
 	<div id="dlg" class="easyui-dialog"
 		style="width: 500px; height: 180px; padding: 10px 20px" closed="true"
 		buttons="#dlg-buttons">
