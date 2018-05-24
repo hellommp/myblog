@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>评论审核</title>
 
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set value="${pageContext.request.contextPath }" var="blog" />
 
 <link rel="stylesheet" type="text/css"
@@ -15,10 +15,12 @@
 	href="${blog}/jquery-easyui-1.5.5.1/themes/icon.css">
 <link rel="stylesheet" type="text/css"
 	href="${blog}/jquery-easyui-1.5.5.1/demo/demo.css">
-<script type="text/javascript" src="${blog}/jquery-easyui-1.5.5.1/jquery.min.js"></script>
+<script type="text/javascript"
+	src="${blog}/jquery-easyui-1.5.5.1/jquery.min.js"></script>
 <script type="text/javascript"
 	src="${blog}/jquery-easyui-1.5.5.1/jquery.easyui.min.js"></script>
-<script type="text/javascript" src="${blog}/js/houtaiJS/commentManage.js"></script>
+<script type="text/javascript"
+	src="${blog}/js/houtaiJS/commentManage.js"></script>
 
 </head>
 
@@ -29,17 +31,19 @@
 			<tr>
 				<th field="cb" checkbox="true" align="center"></th>
 				<th field="id" width="20" align="center">编号</th>
-				<th field="title" width="200">评论人邮箱</th>
-				<th field="blog" width="100" align="center" 
-					formatter="formatBlog">文章标题</th>
-				<th field="releaseDate" width="100" align="center">评论日期</th>
-				<th field="blogType" width="100" align="center">评论内容</th>
+				<th field="email" width="200">评论人邮箱</th>
+				<th field="blog" width="100" align="center" formatter="formatBlog">文章标题</th>
+				<th field="createDate" width="100" align="center">评论日期</th>
+				<th field="content" width="100" align="center">评论内容</th>
 			</tr>
 		</thead>
 	</table>
 	<div id="tb">
 		<div>
-			 <a
+			评论内容 <input type="text" id="s_title" size="20"
+				onkeydown="if(event.keyCode==13) searchBlog()"> <a
+				href="javascript:searchContent()" class="easyui-linkbutton"
+				iconCls="icon-search" plain="true">搜索</a> <a
 				href="javascript:deleteBlog()" class="easyui-linkbutton"
 				iconCls="icon-remove" plain="true">删除</a> <a
 				href="javascript:reload()" class="easyui-linkbutton"

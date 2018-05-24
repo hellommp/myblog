@@ -44,9 +44,12 @@
 		comment c,blog b
 
 		<where>
-			c.bid = b.id
+				c.bid = b.id
 			<if test="title!=null and title!=''">
 				and b.title like "%"#{title}"%"
+			</if>
+			<if test="content!=null and content!=''">
+				and c.content like "%"#{content}"%"
 			</if>
 		</where>
 		ORDER BY createdate DESC

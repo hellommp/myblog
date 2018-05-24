@@ -49,7 +49,9 @@ public class BlogController {
 	@ResponseBody
 	public  Object  saveBlog(Blog blog,HttpServletResponse response) throws Exception{
 		int resultTotal = 0;
-		System.out.println(blog.getId());
+
+		blog.setPublishDate(DateUtil.d2t(new Date()));
+		System.out.println(blog);
         if(blog.getId()!=null){
             //更新操作
             resultTotal = blogService.refreshBlog(blog);
@@ -68,7 +70,7 @@ public class BlogController {
             result.put("success", false);
         }
         ResponseUtil.write(response, result);
-        return "json";
+        return null;
 	}
 	
 	//后台分页查询博客信息

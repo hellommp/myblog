@@ -47,10 +47,11 @@ public class CommentServiceImpl implements CommentService {
 	}
 
 	@Override
-	public PageBean<Comment> listByPage(String title,PageBean<Comment> pageBean) {
+	public PageBean<Comment> listByPage(String content,String title,PageBean<Comment> pageBean) {
 		
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("title", title);
+		map.put("content", content);
 		map.put("start", pageBean.getStart());
 		map.put("end", pageBean.getEnd()-pageBean.getStart());
 		pageBean.setTotal(commentDao.getTotal(map));

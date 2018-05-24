@@ -31,53 +31,54 @@ import com.tianli.service.CommentService;
 import com.tianli.util.PageBean;
 import com.tianli.util.ResponseUtil;
 
-/** 
+/**
  * @Description: TODO
  * @author: TianLi
- * @date: 2018年5月19日 下午3:55:48  
+ * @date: 2018年5月19日 下午3:55:48
  */
 @Controller
 @RequestMapping("/comment")
 public class CommentController {
-	
+
 	@Autowired
 	CommentService commentService;
-	
+
 	@RequestMapping("/listComment")
 	public @ResponseBody List<Category> categoryList(@RequestParam(value = "page", required = false) String page,
-	        @RequestParam(value = "rows", required = false) String rows,
-	        Blog s_blog,
-	        HttpServletResponse response) throws Exception {
-	    //定义分页bean
-	    PageBean<Comment> pageBean = new PageBean<Comment>(Integer.parseInt(page)
-	            ,Integer.parseInt(rows));
-	    //拿到分页结果已经记录总数的pageBean
-	    pageBean = commentService.listByPage(s_blog.getTitle(),pageBean);
-	    //使用阿里巴巴的fastJson创建JSONObject
-	    JSONObject result = new JSONObject();
-	    //通过fastJson序列化list为jsonArray
-	    String jsonArray = JSON.toJSONString(pageBean.getResult());
-	    JSONArray array = JSONArray.parseArray(jsonArray);
-	    //将序列化结果放入json对象中
-	    result.put("rows", array);
-	    result.put("total", pageBean.getTotal());
-	    System.out.println(result);
-	    //使用自定义工具类向response中写入数据
-	    ResponseUtil.write(response, result);
-	    return null;
-		
+			@RequestParam(value = "rows", required = false) String rows,
+			@RequestParam(value = "content", required = false) String content,
+			@RequestParam(value = "title", required = false) String title, HttpServletResponse response)
+			throws Exception {
+		// 定义分页bean
+		PageBean<Comment> pageBean = new PageBean<Comment>(Integer.parseInt(page), Integer.parseInt(rows));
+		// 拿到分页结果已经记录总数的pageBean
+			pageBean = commentService.listByPage(content,title, pageBean);
+		// 使用阿里巴巴的fastJson创建JSONObject
+		JSONObject result = new JSONObject();
+		// 通过fastJson序列化list为jsonArray
+		String jsonArray = JSON.toJSONString(pageBean.getResult());
+		JSONArray array = JSONArray.parseArray(jsonArray);
+		// 将序列化结果放入json对象中
+		result.put("rows", array);
+		result.put("total", pageBean.getTotal());
+		System.out.println(result);
+		// 使用自定义工具类向response中写入数据
+		ResponseUtil.write(response, result);
+		return null;
+
 	}
-	
-	 @RequestMapping("/delete")
-	    public String deleBlog(String ids,HttpServletResponse response) throws Exception{
-	    	String[] idsStr = ids.split(",");
-	        for(int i = 0; i < idsStr.length; i++) {
-	            int id = Integer.parseInt(idsStr[i]);
-	            commentService.deleteComment(id);
-	        }
-	        JSONObject result = new JSONObject();
-	        result.put("success", true);
-	        ResponseUtil.write(response, result);
-	        return null;
-	    }
+
+	@RequestMapping("/delete")
+	public String deleBlog(String ids, HttpServletResponse response) throws Exception {
+		String[] idsStr = ids.split(",");
+		for (int i = 0; i < idsStr.length; i++) {
+			int id = Integer.parseInt(idsStr[i]);
+			commentService.deleteComment(id);
+		}
+		JSONObject result = new JSONObject();
+		result.put("success", true);
+		ResponseUtil.write(response, result);
+		return null;
+	}
+
 }

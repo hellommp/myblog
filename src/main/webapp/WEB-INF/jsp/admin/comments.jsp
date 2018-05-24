@@ -37,7 +37,7 @@
 	</table>
 	<div id="tb">
 		<div>
-			文章标题 <input type="text" id="s_title" size="20"
+			评论内容 <input type="text" id="s_title" size="20"
 				onkeydown="if(event.keyCode==13) searchBlog()"> <a
 				href="javascript:searchComment()" class="easyui-linkbutton"
 				iconCls="icon-search" plain="true">搜索</a> <a
