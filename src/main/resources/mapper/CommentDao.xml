@@ -5,24 +5,24 @@
 <mapper namespace="com.tianli.dao.CommentDao">
 
 	<insert id="addComment">
-		INSERT INTO 
-			comment(content,createdate,bid)
+		INSERT INTO
+		comment(content,createdate,bid)
 		VALUES
-			(#{content},#{createDate},#{bid})
+		(#{content},#{createDate},#{bid})
 	</insert>
-	
+
 	<select id="queryCommentsById" parameterType="int" resultType="Comment">
 		SELECT * FROM
-			comment
+		comment
 		WHERE
-			bid = #{id}
+		bid = #{id}
 	</select>
-	
+
 	<delete id="deleteComment">
 		DELETE FROM
-			comment
-		WHERE 
-			id = #{id}
+		comment
+		WHERE
+		id = #{id}
 	</delete>
 	<resultMap id="CommentResult" type="com.tianli.entity.Comment">
 		<id column="cid" property="id" />
@@ -35,24 +35,35 @@
 			<result column="title" property="title" />
 		</association>
 	</resultMap>
-	
-	<select id="listByPage" resultMap="CommentResult">
+
+	<select id="listByPage" parameterType="Map" resultMap="CommentResult">
 		SELECT
-			c.id 'cid',c.*,b.title,b.id 'bid'
+		c.id 'cid',c.content,c.createdate,c.email,
+		b.id 'bid',b.title
 		FROM
-			comment c, blog b
-		WHERE
+		comment c,blog b
+
+		<where>
 			c.bid = b.id
-		LIMIT 
-		    #{start},#{end}
-		
+			<if test="title!=null and title!=''">
+				and b.title like "%"#{title}"%"
+			</if>
+		</where>
+		ORDER BY createdate DESC
+		<if test="start!=null and end!=null">
+			limit #{start},#{end}
+		</if>
+
 	</select>
-	
-	<select id="getTotal" resultType="java.lang.Integer">
-		SELECT 
-			COUNT(*)
-		FROM
-			comment
+
+	<select id="getTotal" parameterType="Map" resultType="Integer">
+		SELECT COUNT(*) FROM comment c,blog b
+		<where>
+			c.bid = b.id
+			<if test="title!=null and title!=''">
+				and b.title like "%"#{title}"%"
+			</if>
+		</where>
 	</select>
-	
+
 </mapper>

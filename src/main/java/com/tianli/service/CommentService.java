@@ -26,5 +26,5 @@ public interface CommentService {
 	void deleteComment(Integer id);
 
 	 //分页查询
-    PageBean<Comment> listByPage(PageBean<Comment> pageBean);
+    PageBean<Comment> listByPage(String title,PageBean<Comment> pageBean);
 }

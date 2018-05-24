@@ -49,7 +49,7 @@ public class BlogController {
 	@ResponseBody
 	public  Object  saveBlog(Blog blog,HttpServletResponse response) throws Exception{
 		int resultTotal = 0;
-		blog.getUser().setId(1);
+		System.out.println(blog.getId());
         if(blog.getId()!=null){
             //更新操作
             resultTotal = blogService.refreshBlog(blog);

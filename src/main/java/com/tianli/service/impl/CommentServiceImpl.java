@@ -8,6 +8,8 @@ package com.tianli.service.impl;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -45,13 +47,15 @@ public class CommentServiceImpl implements CommentService {
 	}
 
 	@Override
-	public PageBean<Comment> listByPage(PageBean<Comment> pageBean) {
+	public PageBean<Comment> listByPage(String title,PageBean<Comment> pageBean) {
 		
-		 //查询分页结果
-        pageBean.setResult(commentDao.listByPage(pageBean.getStart(),pageBean.getEnd()-pageBean.getStart()));
-        //查询记录总数
-        pageBean.setTotal(commentDao.getTotal());
-        return pageBean;
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("title", title);
+		map.put("start", pageBean.getStart());
+		map.put("end", pageBean.getEnd()-pageBean.getStart());
+		pageBean.setTotal(commentDao.getTotal(map));
+		pageBean.setResult(commentDao.listByPage(map));
+		return pageBean;
 	}
 
 }

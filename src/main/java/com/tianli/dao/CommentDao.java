@@ -9,6 +9,7 @@ package com.tianli.dao;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
 
@@ -40,11 +41,11 @@ public interface CommentDao {
      * @param end
      * @return
      */
-    List<Comment> listByPage(@Param("start") Integer start, @Param("end") Integer end);
+    List<Comment> listByPage(Map<String, Object> map);
 
     /**
      * 查询总记录数
      * @return
      */
-    Integer getTotal();
+    Integer getTotal(Map<String ,Object> map);
 }

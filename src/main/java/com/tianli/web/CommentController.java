@@ -23,6 +23,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.tianli.dao.CategoryDao;
+import com.tianli.entity.Blog;
 import com.tianli.entity.Category;
 import com.tianli.entity.Comment;
 import com.tianli.service.CategoryService;
@@ -45,12 +46,13 @@ public class CommentController {
 	@RequestMapping("/listComment")
 	public @ResponseBody List<Category> categoryList(@RequestParam(value = "page", required = false) String page,
 	        @RequestParam(value = "rows", required = false) String rows,
+	        Blog s_blog,
 	        HttpServletResponse response) throws Exception {
 	    //定义分页bean
 	    PageBean<Comment> pageBean = new PageBean<Comment>(Integer.parseInt(page)
 	            ,Integer.parseInt(rows));
 	    //拿到分页结果已经记录总数的pageBean
-	    pageBean = commentService.listByPage(pageBean);
+	    pageBean = commentService.listByPage(s_blog.getTitle(),pageBean);
 	    //使用阿里巴巴的fastJson创建JSONObject
 	    JSONObject result = new JSONObject();
 	    //通过fastJson序列化list为jsonArray
@@ -65,4 +67,17 @@ public class CommentController {
 	    return null;
 		
 	}
+	
+	 @RequestMapping("/delete")
+	    public String deleBlog(String ids,HttpServletResponse response) throws Exception{
+	    	String[] idsStr = ids.split(",");
+	        for(int i = 0; i < idsStr.length; i++) {
+	            int id = Integer.parseInt(idsStr[i]);
+	            commentService.deleteComment(id);
+	        }
+	        JSONObject result = new JSONObject();
+	        result.put("success", true);
+	        ResponseUtil.write(response, result);
+	        return null;
+	    }
 }

@@ -81,7 +81,7 @@ function openBlogModifyTab() {
         ue.setContent(row.content);  //赋值给UEditor  
     });  
 	//在url中添加id 后台就能识别是更新操作
-	url = "../admin/save?id=" + row.id;
+	url = "../blog/save?id=" + row.id;
 }
 /**
  * 重新载入数据

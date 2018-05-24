@@ -45,7 +45,7 @@ function deleteComment() {
 		//确定删除
 		if (r) {
 			//发送ajax请求
-			$.post("${blog}/admin/blog/delete.do", {
+			$.post("../comment/delete", {
 				ids: ids
 			}, function(result) {
 				if (result.success) {
