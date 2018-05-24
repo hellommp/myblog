@@ -138,9 +138,6 @@ function saveBlogType() {
  			'keyWord': keyWord,
  			/*'contentNoTag': contentNoTag*/
  		}, function(result) {
- 			console.log("result:"+result);
-			//此处data={"Success":true}实际为字符串，而不是json对象，需要用如下代码处理  
-            var result = jQuery.parseJSON(result); 
  			if (result.success) {
 				$.messager.alert("系统提示", "博客信息保存成功");
 				$("content").val(""); //保存成功后将内容置空

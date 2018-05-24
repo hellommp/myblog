@@ -24,6 +24,15 @@ function searchComment() {
 }
 
 /**
+ * 按照评论内容查询评论
+ */
+function searchContent() {
+	$("#dg").datagrid("load", {
+		"content": $("#s_title").val()
+	});
+}
+
+/**
  * 删除评论
  * 可以多选
  */
@@ -49,7 +58,7 @@ function deleteComment() {
 		//确定删除
 		if (r) {
 			//发送ajax请求
-			$.post("${blog}/admin/blog/delete.do", {
+			$.post("../comment/delete", {
 				ids: ids
 			}, function(result) {
 				if (result.success) {

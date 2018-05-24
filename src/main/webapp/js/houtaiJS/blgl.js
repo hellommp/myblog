@@ -28,6 +28,7 @@ $(function() {
 				//将url设置为添加
 				url = "../category/save";
 			}
+
 		},  '-', {
 			iconCls: 'icon-edit',
 			text: '删除',
