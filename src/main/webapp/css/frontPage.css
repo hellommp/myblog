@@ -32,6 +32,10 @@ body{
 	margin-bottom: 20px;
 	
 }
+
+#articles{
+	height: 1000px;
+}
 .pull_left{
 	float: left;
 	margin-left: 10px;

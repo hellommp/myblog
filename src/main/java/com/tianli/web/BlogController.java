@@ -6,6 +6,8 @@
  */
 package com.tianli.web;
 
+
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -17,6 +19,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -28,6 +31,7 @@ import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.tianli.dao.BlogDao;
 import com.tianli.dao.CategoryDao;
 import com.tianli.entity.Blog;
+import com.tianli.entity.Category;
 import com.tianli.service.BlogService;
 import com.tianli.util.DateUtil;
 import com.tianli.util.PageBean;
@@ -98,6 +102,8 @@ public class BlogController {
         //把结果放入json
         result.put("rows", array);
         result.put("total", pageBean.getTotal());
+        
+        System.out.println("result"+result);
         //返回
         ResponseUtil.write(response, result);
         return null;
@@ -116,4 +122,45 @@ public class BlogController {
         ResponseUtil.write(response, result);
         return null;
     }
+    
+  //前台分页查询博客信息
+    @RequestMapping("/blogList")
+    public String blogList(
+    		@RequestParam(value = "page", required = false) String page,
+            @RequestParam(value = "rows", required = false) String rows,
+           HttpServletResponse response) throws Exception {
+        PageBean<Blog> pageBean = new PageBean<Blog>(Integer.parseInt(page), Integer.parseInt(rows));
+        System.out.println(page+"当前页数" +rows);
+
+        pageBean = blogService.listBlog(null, pageBean);
+        //创建json对象
+        JSONObject result = new JSONObject();
+        //设置json序列化日期格式
+        JSON.DEFFAULT_DATE_FORMAT = "yyyy-MM-dd HH:MM:SS";
+        //禁止对象循环引用
+        //使用默认日期格式化
+        String jsonStr = JSONObject.toJSONString(pageBean.getResult(),
+                SerializerFeature.DisableCircularReferenceDetect,
+                SerializerFeature.WriteDateUseDateFormat);
+        //得到json数组
+        JSONArray array = JSON.parseArray(jsonStr);
+        int number = 0;
+        if(pageBean.getTotal()%pageBean.getPageSize()==0){
+        	number = (int) (pageBean.getTotal()/pageBean.getPageSize());
+        }else{
+        	number = (int) (pageBean.getTotal()/pageBean.getPageSize())+1;
+        }
+        result.put("number", number);
+        result.put("success", true);
+        //把结果放入json
+        result.put("rows", array);
+        result.put("total", pageBean.getTotal());
+        
+        System.out.println("result"+result);
+        //返回
+        ResponseUtil.write(response, result);
+        return null;
+    }
 }
+
+
