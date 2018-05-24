@@ -1,3 +1,10 @@
+
+//定义全局url 用于修改与添加操作
+var url;
+
+//省略其他代码  让url声明在第一行
+
+
 /**
  * 格式化博客类型获取其类型名称
  * @param val
@@ -75,17 +82,104 @@ function openBlogModifyTab() {
 	$("#fm").form("load", row); //会自动识别name属性，将row中对应的数据，填充到form表单对应的name属性中
 	
 	//根据已知的类型值让下拉框进行选中
-	console.log(row.category.name);
 	$("#category option[value='"+row.category.name+"']").attr("selected","selected");
     ue.ready(function() {//编辑器初始化完成再赋值  
         ue.setContent(row.content);  //赋值给UEditor  
     });  
 	//在url中添加id 后台就能识别是更新操作
-	url = "../admin/save?id=" + row.id;
+	url = "../blog/save?id=" + row.id;
 }
 /**
  * 重新载入数据
  */
 function reload() {
 	$("#dg").datagrid("reload");
+}
+
+/*关闭对话框*/
+
+function closeBlogTypeDialog() {
+	$("content").val(""); //保存成功后将内容置空
+	$("title").val("");
+	$("keyWord").val(""); 
+	$("category").val("");
+	$("#dlg").dialog("close"); //关闭对话框
+}
+
+
+/**
+ * 添加或者修改博客信息
+ */
+function saveBlogType() {
+	//获取博客标题
+ 	var title =  $("#fm").find("#title").val();
+ 	//获取博客类别id
+ 	var categoryId =  $("#fm").find("#category").combobox("getValue");
+ 	//获取博客内容 带标记
+ 	var content =UE.getEditor('editor').getContent();
+ 	/*//截取博客前155字符 作为博客简介
+ 	var summary = UE.getEditor('editor').getContentTxt().substr(0, 155);*/
+ 	//博客关键词
+ 	var keyWord = $("#fm").find("#keyWord").val();
+ 	
+ 	if (title == null || title == '') {
+ 		$.messager.alert("系统提示", "请输入标题！");
+ 	} else if (categoryId == null || categoryId == '') {
+ 		$.messager.alert("系统提示", "请选择博客类型！");
+ 	} else if (content == null || content == '') {
+ 		$.messager.alert("系统提示", "请编辑博客内容！");
+ 	} else {
+ 		//ajax请求 请求后台写博客接口
+ 		$.post(url, {
+ 			'title': title,
+ 			'category.id': categoryId,
+ 			'content': content,
+ 			/*'summary': summary,*/
+ 			'keyWord': keyWord,
+ 			/*'contentNoTag': contentNoTag*/
+ 		}, function(result) {
+ 			console.log("result:"+result);
+			//此处data={"Success":true}实际为字符串，而不是json对象，需要用如下代码处理  
+            var result = jQuery.parseJSON(result); 
+ 			if (result.success) {
+				$.messager.alert("系统提示", "博客信息保存成功");
+				$("content").val(""); //保存成功后将内容置空
+				$("title").val("");
+				$("keyword").val(""); 
+				$("category").val("");
+				$("#dlg").dialog("close"); //关闭对话框
+				$("#dg").datagrid("reload"); //刷新一下
+			} else {
+				$.messager.alert("系统提示", "博客信息保存失败");
+				return;
+			}
+ 		}, "json");
+ 	}
+	/*$("#fm").form("submit", {
+		url : url,
+		onSubmit : function() {
+			return $(this).form("validate");
+		}, //进行验证，通过才让提交
+		
+		//注意ajax的url的后台action方法必须有返回值return "json"，而不是return null,否则下面的回调函数不起作用，sucess方法失效  
+		success : function(result) {
+			console.log("result:"+result);
+			//此处data={"Success":true}实际为字符串，而不是json对象，需要用如下代码处理  
+            var result = jQuery.parseJSON(result);  
+			
+			var result = eval("(" + result + ")"); //将json格式的result转换成js对象
+			if (result.success) {
+				$.messager.alert("系统提示", "博客信息保存成功");
+				$("content").val(""); //保存成功后将内容置空
+				$("title").val("");
+				$("keyword").val(""); 
+				$("category").val("");
+				$("#dlg").dialog("close"); //关闭对话框
+				$("#dg").datagrid("reload"); //刷新一下
+			} else {
+				$.messager.alert("系统提示", "博客信息保存失败");
+				return;
+			}
+		}
+	});*/
 }
