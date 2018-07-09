@@ -9,6 +9,10 @@ package com.tianli.entity;
 import java.io.Serializable;
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 /** 
  * @Description: 评论表
  * @author: TianLi
@@ -26,6 +30,18 @@ public class Comment implements Serializable{
 	
 	private String email; 
 	
+	private String name;
+	
+	public String getName() {
+		return name;
+	}
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
 	public Integer getId() {
 		return id;
 	}
@@ -53,6 +69,8 @@ public class Comment implements Serializable{
 		this.content = content;
 	}
 
+	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")  
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
 	public Date getCreateDate() {
 		return createDate;
 	}
@@ -69,21 +87,23 @@ public class Comment implements Serializable{
 	 * @param createDate
 	 * @param blog
 	 * @param email
+	 * @param name
 	 */
-	public Comment(Integer id, String content, Date createDate, Blog blog, String email) {
+	public Comment(Integer id, String content, Date createDate, Blog blog, String email,String name) {
 		super();
 		this.id = id;
 		this.content = content;
 		this.createDate = createDate;
 		this.blog = blog;
 		this.email = email;
+		this.name = name;
 	}
 
 
 	@Override
 	public String toString() {
 		return "Comment [id=" + id + ", content=" + content + ", createDate=" + createDate + ", blog=" + blog
-				+ ", email=" + email + "]";
+				+ ", email=" + email + ", name=" + name + "]";
 	}
 
 

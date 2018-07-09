@@ -9,7 +9,6 @@
 <%@ include file="../samePage/headInclude.jsp"%>
 <!--加载评论div的css-->
 <link rel="stylesheet" href="${blog}/css/comments.css" />
-<link rel="stylesheet" href="${blog}/css/articleDetail.css" />
 <script type="text/javascript" src="${blog}/js/articleDetail.js"></script>
 <link rel="stylesheet" href="${blog}/css/frontPage.css" />
 </head>
@@ -28,28 +27,27 @@
 			</div>
 			<div class="right_content ">
 
-				<article id="article_1" class=" articles">
+				<article id="article_${Blog.id}" class=" articles">
 				<div class="stick"></div>
 				<h4 class="entry-title">
-					<a style="color: black; font-weight: bold;" href="#" title="java">【ssm个人博客项目实战01】SSM环境搭建</a>
+					<a style="color: black; font-weight: bold;" href="#" title="java">${Blog.title}</a>
 				</h4>
 				<div class="entry-content">
-					<a href="#">【ssm个人博客项目实战01】SSM环境搭建1111111111</a>
+					<a href="#">${Blog.content}</a>
 				</div>
 				<div class="entry-foot">
 					<div class="pull_left">
 						<div class="pull_left">
-							<span class="glyphicon glyphicon-time"></span> <a href="#">2018-03-16
-								11:34:01 </a>
+							<span class="glyphicon glyphicon-time"></span> <a href="#">${Blog.publishDate} </a>
 						</div>
 						<div class="pull_left">
-							<span class="glyphicon glyphicon-bookmark"></span> <a href="#">梁钟霖
+							<span class="glyphicon glyphicon-bookmark"></span> <a href="#">H&T
 							</a>
 						</div>
 						<div class="pull_left">
 							<span class="glyphicon glyphicon-tags"></span> <a href="#"
-								class="keyword"> <span>ip</span> <span>mysql</span> <span>java教程</span>
-								<span>xmanager</span> <span>java</span>
+								class="keyword"> 
+								${Blog.keyWord}
 							</a>
 						</div>
 					</div>
@@ -85,7 +83,7 @@
 								id="li-comment-22">
 								<div class="comment-block" id="comment-22">
 									<div class="author-img">
-										<img class="lazy" data-original="img/" src="img/huaban.png"
+										<img class="lazy" data-original="img" src="${blog}/img/huaban.png"
 											width="100" height="100">
 									</div>
 									<div class="comment-body clearfix">
@@ -108,7 +106,7 @@
 						</ul>
 						<br> <br>
 						<div class="showAll">
-							<input type="button" value="显示全部评论" />
+							<input type="button" value="显示全部评论"/>
 						</div>
 						<div id="respond" class="comment-respond">
 							<h3 id="reply-title" class="comment-reply-title">
@@ -135,6 +133,8 @@
 										aria-describedby="email-notes" aria-required="true"
 										required="required" type="text">
 								</p>
+								<br>
+								<br>	
 								<p class="comment-form-comment">
 									<label for="comment">评论</label>
 									<textarea id="comment" name="comment" cols="45" rows="8"

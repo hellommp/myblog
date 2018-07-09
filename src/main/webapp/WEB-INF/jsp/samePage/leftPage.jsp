@@ -5,6 +5,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>左边导航页面</title>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:set value="${pageContext.request.contextPath }" var="blog" />
 	</head>
 
 	<body>
@@ -12,7 +14,7 @@
 			<aside class="personal_profile mark">
 				<h5 class="mark_title"><span id="advertColor" style="color: red;font-weight: bold;">个人资料</span></h5>
 				<div class="head_portrait mark_item">
-					<img src="img/huaban.png" />
+					<img src="${blog}/img/huaban.png" />
 					<span class="glyphicon glyphicon-thumbs-up"></span>
 				</div>
 				<div class="head_detail mark_item">
@@ -127,8 +129,8 @@
 			<aside class="personal_contact_us mark">
 				<h5 class="mark_title"><span style="color: #9A08EF;font-weight: bold;">联系我们</span></h5>
 				<div class="mark_item3">
-					<img src="img/QRcode1.jpg" />
-					<img src="img/QRcode2.jpg" />
+					<img src="${blog}/img/QRcode1.jpg" />
+					<img src="${blog}/img/QRcode2.jpg" />
 					<div style="clear: both;"></div>
 					<span>请扫描二维码联系客服</span>
 				</div>

@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>头部</title>
-<link
+<!-- <link
 	href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"
 	rel="stylesheet">
 <script
@@ -13,7 +13,7 @@
 <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
 <script
 	src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="css/samePageCss/head.css" />
+<link rel="stylesheet" href="css/samePageCss/head.css" /> -->
 </head>
 
 <body>
@@ -21,7 +21,7 @@
 		<nav class="navbar navbar-default" role="navigation">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="#"> <img src="img/huaban.png" />
+				<a class="navbar-brand" href="#"> <img src="${blog}/img/huaban.png" />
 				</a>
 				<button type="button" class="navbar-toggle" data-toggle="collapse"
 					data-target="#example-navbar-collapse">

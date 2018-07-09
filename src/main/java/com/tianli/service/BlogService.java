@@ -27,6 +27,7 @@ public interface BlogService {
 	
 	Integer deleteBlogByCategory(Integer cid);
 	
+	// 根据id查询博客
 	Blog queryBlogById(Integer id);
 	
 	// 分页查询博客

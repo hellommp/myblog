@@ -31,8 +31,8 @@ public class CommentServiceImpl implements CommentService {
 	CommentDao commentDao;
 	
 	@Override
-	public void addComment(String content, Date createDate, Integer bid) {
-		commentDao.addComment(content, createDate, bid);
+	public int addComment(Comment comment) {
+		return commentDao.addComment(comment);
 	}
 
 	@Override
@@ -47,13 +47,15 @@ public class CommentServiceImpl implements CommentService {
 	}
 
 	@Override
-	public PageBean<Comment> listByPage(String content,String title,PageBean<Comment> pageBean) {
+	public PageBean<Comment> listByPage(String content,String title,Integer blogid,PageBean<Comment> pageBean) {
 		
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("title", title);
 		map.put("content", content);
+		map.put("blogid", blogid);
 		map.put("start", pageBean.getStart());
 		map.put("end", pageBean.getEnd()-pageBean.getStart());
+		
 		pageBean.setTotal(commentDao.getTotal(map));
 		pageBean.setResult(commentDao.listByPage(map));
 		return pageBean;

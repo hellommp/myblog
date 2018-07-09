@@ -381,15 +381,3 @@ textarea {
 	height: 40px;
 }
 
-button,
-input {
-	overflow: visible;
-}
-
-button,
-input,
-optgroup,
-select,
-textarea {
-	margin: 0;
-}
