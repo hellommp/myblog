@@ -1,4 +1,6 @@
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -67,5 +69,11 @@ public class BlogDaoTest {
 		int id = 1;
 		blogDao.deleteBlog(id);
 	}
-	
+	@Test 
+	public void listBlogTest(){
+		Map<String,Object>map = new HashMap<String, Object>();
+		map.put("start",1);
+		map.put("end", 5);
+		System.out.println(blogDao.listBlog(map));
+	}
 }

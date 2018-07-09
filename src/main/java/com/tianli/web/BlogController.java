@@ -116,4 +116,11 @@ public class BlogController {
         ResponseUtil.write(response, result);
         return null;
     }
+    @RequestMapping("/BlogDetail")
+    public ModelAndView getBlogDetail(Integer id){
+    	ModelAndView mv = new ModelAndView("/fore/articleDetial");
+		Blog blog = blogService.queryBlogById(id);
+		mv.addObject("blog",blog );
+		return mv;
+    }
 }

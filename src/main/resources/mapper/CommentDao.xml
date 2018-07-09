@@ -27,7 +27,7 @@
 	<resultMap id="CommentResult" type="com.tianli.entity.Comment">
 		<id column="cid" property="id" />
 		<result column="content" property="content" />
-		<result column="createdate" property="createDate" />
+		<result column="createdate" jdbcType="TIMESTAMP" property="createDate" />
 		<result column="email" property="email" />
 
 		<association property="blog" javaType="com.tianli.entity.Blog">
