@@ -74,6 +74,7 @@ public class BlogController {
             result.put("success", false);
         }
         ResponseUtil.write(response, result);
+        System.out.println(result);
         return null;
 	}
 	
@@ -161,6 +162,22 @@ public class BlogController {
         ResponseUtil.write(response, result);
         return null;
     }
+    
+    /**
+     * 根据id查找博客
+     * */
+    
+    @RequestMapping("/blogDetail")
+    public String blogDetail(
+    		@RequestParam(value = "id", required = false) Integer id,Model model) throws Exception {
+        System.out.println("当前id:" +id);
+        Blog blog = blogService.queryBlogById(id);
+        System.out.println("当前博客:" +blog);
+        model.addAttribute("Blog", blog);
+        return "fore/articleDetial";
+    }
+    
+    
 }
 
 

@@ -9,6 +9,8 @@ package com.tianli.service;
 import java.util.ArrayList;
 import java.util.Date;
 
+import org.omg.PortableInterceptor.INACTIVE;
+
 import com.tianli.entity.Comment;
 import com.tianli.util.PageBean;
 
@@ -19,12 +21,12 @@ import com.tianli.util.PageBean;
  */
 public interface CommentService {
 	
-	void addComment(String content,Date createDate,Integer bid);
+	int addComment(Comment comment);
 
 	ArrayList<Comment>queryCommentsById(Integer id);
 
 	void deleteComment(Integer id);
 
 	 //分页查询
-    PageBean<Comment> listByPage(String content,String title,PageBean<Comment> pageBean);
+    PageBean<Comment> listByPage(String content,String title,Integer blogid, PageBean<Comment> pageBean);
 }

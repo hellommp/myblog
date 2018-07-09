@@ -34,11 +34,11 @@ public class CommentDaoTest {
 	@Autowired
 	CommentDao commentDao;
 	
-	@Test
+	/*@Test
 	public void addCommentTest(){
 		commentDao.addComment("666", DateUtil.d2t(new Date()), 2);
 		commentDao.addComment("777", DateUtil.d2t(new Date()), 2);
-	}
+	}*/
 	
 	@Test
 	public void queryCommentsByIdTest(){

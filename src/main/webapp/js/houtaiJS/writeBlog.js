@@ -35,13 +35,14 @@ $(function(){
  			'keyWord': keyWord,
  			/*'contentNoTag': contentNoTag*/
  		}, function(result) {
- 			if (result=="123") {
- 				$.messager.alert("系统提示", "博客发布成功！");
+ 			var obj = eval('(' + result + ')');
+			if (obj.success) {
+				$.messager.alert("系统提示", "博客发布成功！");
  				clearValues();
  			} else {
  				$.messager.alert("系统提示", "博客发布失败！");
  			}
- 		}, "json");
+ 		});
  	}
  }
  //清空功能

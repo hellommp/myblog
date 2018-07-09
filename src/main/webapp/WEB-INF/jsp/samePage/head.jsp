@@ -21,7 +21,7 @@
 		<nav class="navbar navbar-default" role="navigation">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="#"> <img src="img/huaban.png" />
+				<a class="navbar-brand" href="#"> <img src="${blog}/img/huaban.png" />
 				</a>
 				<button type="button" class="navbar-toggle" data-toggle="collapse"
 					data-target="#example-navbar-collapse">

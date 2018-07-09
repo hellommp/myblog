@@ -26,7 +26,7 @@ public interface CommentDao {
 	/**
 	 * 增加评论
 	 */
-	void addComment(@Param("content")String content,@Param("createDate")Date createDate,@Param("bid")Integer bid);
+	int addComment(Comment comment);
 	/**
 	 *根据文章id查找评论 
 	 */
