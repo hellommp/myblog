@@ -77,6 +77,7 @@ public class CommentController {
         }else{
         	number = (int) (pageBean.getTotal()/pageBean.getPageSize())+1;
         }
+
 		// 将序列化结果放入json对象中
         result.put("number", number);
         result.put("success", true);

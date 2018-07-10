@@ -123,6 +123,7 @@ public class BlogController {
         ResponseUtil.write(response, result);
         return null;
     }
+
     
   //前台分页查询博客信息
     @RequestMapping("/blogList")
@@ -176,7 +177,6 @@ public class BlogController {
         model.addAttribute("Blog", blog);
         return "fore/articleDetial";
     }
-    
     
 }
 

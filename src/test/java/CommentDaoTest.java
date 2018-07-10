@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -49,5 +51,13 @@ public class CommentDaoTest {
 	@Test
 	public void deleteCommentTest(){
 		commentDao.deleteComment(1);
+	}
+	@Test
+	public void listCommentTest(){
+		Map<String, Object> map = new HashMap<String, Object>();
+
+		map.put("start", 1);
+		map.put("end", 1);
+		System.out.println(commentDao.listByPage(map));
 	}
 }
