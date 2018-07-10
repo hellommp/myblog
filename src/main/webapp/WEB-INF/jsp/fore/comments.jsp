@@ -160,7 +160,7 @@
  -->
 						</ul>
 
-						<div>
+						<div align="center">
 							<ul class="pagination" id="page1">
 							</ul>
 						</div>
@@ -236,8 +236,9 @@
 			success:function(result){ 
 				var obj = JSON.parse(result);
 				commentList = obj.rows;
-				number = obj.total;
-				$("#comments-title").val(number+"条评论");
+				number = obj.number;
+				total = obj.total;
+				$("#comments-title").text(total+"条评论");
 				
 				var str = "";
 				for(var i=0;i<commentList.length;i++){
